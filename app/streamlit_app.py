@@ -135,5 +135,5 @@ st.caption(
     "[outkast](https://github.com/appeler/outkast); how common a name is from "
     "the 2017 electoral rolls via "
     "[instate](https://github.com/appeler/instate). The workings are in "
-    "[last-name-basis](https://github.com/in-rolls/last-name-basis)."
+    "[last-name-basis](https://github.com/in-rolls/caste-name-information)."
 )

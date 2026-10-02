@@ -71,7 +71,7 @@ def checkpoints() -> Path:
     `load` returned the cached table, and the analysis reported one district
     for weeks without raising. A missing path is now an error.
     """
-    return _github() / "odisha-ror"
+    return _github() / "ror_odisha_2026"
 
 
 def materialise() -> None:

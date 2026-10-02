@@ -214,7 +214,7 @@ one.
 ---
 
 *Odisha Record of Rights collected in
-[odisha-ror](https://github.com/in-rolls/odisha-ror). Bihar rungs from analysis
+[odisha-ror](https://github.com/in-rolls/ror_odisha_2026). Bihar rungs from analysis
 02.*
 """
     out = HERE / "note.md"

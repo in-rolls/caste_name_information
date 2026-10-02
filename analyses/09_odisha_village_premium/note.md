@@ -172,5 +172,5 @@ one.
 ---
 
 *Odisha Record of Rights collected in
-[odisha-ror](https://github.com/in-rolls/odisha-ror). Bihar rungs from analysis
+[ror_odisha_2026](https://github.com/in-rolls/ror_odisha_2026). Bihar rungs from analysis
 02.*

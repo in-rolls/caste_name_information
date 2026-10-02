@@ -95,7 +95,7 @@ is the recorded surname, versioned, for Bihar, Rajasthan and Maharashtra
 Mahadalit census, with a jati and a hamlet for each household (analyses 02 and
 06). [**pranaam**](https://github.com/appeler/pranaam) holds the Karnataka
 Public Service Commission select lists (analysis 08), and
-[**odisha-ror**](https://github.com/in-rolls/odisha-ror) the Odisha Record of
+[**ror_odisha_2026**](https://github.com/in-rolls/ror_odisha_2026) the Odisha Record of
 Rights (analysis 09). That last one publishes the scraper and not the records,
 so analysis 09 needs a local fetch to reproduce.
 
