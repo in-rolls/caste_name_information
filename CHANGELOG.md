@@ -280,6 +280,6 @@ average, is the finding.
 - `in-rolls/jati` is private, and analyses 02 and 06 read their ladders from a
   local clone of it. The README linked it as though a reader could follow.
 
-[Unreleased]: https://github.com/in-rolls/caste-name-information/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/in-rolls/caste-name-information/releases/tag/v1.0.1
-[1.0.0]: https://github.com/in-rolls/caste-name-information/releases/tag/v1.0.0
+[Unreleased]: https://github.com/in-rolls/caste_name_information/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/in-rolls/caste_name_information/releases/tag/v1.0.1
+[1.0.0]: https://github.com/in-rolls/caste_name_information/releases/tag/v1.0.0
