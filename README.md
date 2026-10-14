@@ -472,3 +472,7 @@ Shared code is only the scoring measure, the drawing style and one data reader:
 | `src/last_name_basis/upnaam.py` | validated reader for resolved roll surnames |
 
 MIT licensed.
+
+<!-- adjacent:start -->
+
+<!-- adjacent:end -->
