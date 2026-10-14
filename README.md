@@ -475,4 +475,14 @@ MIT licensed.
 
 <!-- adjacent:start -->
 
+## 🔗 Adjacent Repositories
+
+- [in-rolls/caste_restaurant_names](https://github.com/in-rolls/caste_restaurant_names)
+- [in-rolls/secc](https://github.com/in-rolls/secc) — Socio-Economic Caste Census 2011
+- [in-rolls/upnaam](https://github.com/in-rolls/upnaam) — Resolve surnames in parsed Indian electoral rolls with explicit evidence and abstention
+- [in-rolls/anusuchi](https://github.com/in-rolls/anusuchi) — Statutory caste lists for India \(SC/ST/OBC\), stored as published and parsed into rows
+- [in-rolls/caste_marriage_matching](https://github.com/in-rolls/caste_marriage_matching) — Replication and analysis of caste preferences, shortlisting and marriage matching in India
+
+_Powered by [Adjacent](https://github.com/gojiplus/adjacent)_
+
 <!-- adjacent:end -->
