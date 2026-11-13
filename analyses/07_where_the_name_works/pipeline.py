@@ -110,7 +110,7 @@ def main() -> None:
         },
         # The objection a reader raises first: the floor keeps common names,
         # and common names are the uninformative ones. If the ordering held
-        # only before this control, the result would be an artefact of it.
+        # only before this control, the result would be an artifact of it.
         "top25_control": {
             "spearman_with_full": float(
                 table["removed"].rank().corr(table["removed_top25"].rank())

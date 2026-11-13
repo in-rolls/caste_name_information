@@ -25,7 +25,7 @@ make app          # streamlit run app/streamlit_app.py
 non-Dalit bearers each has. Two kinds are then dropped before play:
 
 **Religion-marked surnames.** They are near-perfect "not Dalit" tells, together
-4.8% of non-Dalit draws against 0.1% of Dalit ones. A player who recognises them
+4.8% of non-Dalit draws against 0.1% of Dalit ones. A player who recognizes them
 wins those rounds without knowing anything about caste.
 
 **One surname spelled two ways.** `sing` against `singh` asks about

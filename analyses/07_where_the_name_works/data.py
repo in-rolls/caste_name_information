@@ -207,7 +207,7 @@ def decompose(per: pd.DataFrame, state: str, cover: float = 0.5) -> dict | None:
     state's naming is but whether the concentration sits in names that mark a
     lineage.
 
-    A decomposition, not an identified mediation: nothing is randomised and no
+    A decomposition, not an identified mediation: nothing is randomized and no
     counterfactual is estimated. It describes where the pairs sit.
     """
     cols = per.attrs["count_cols"]

@@ -107,7 +107,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   refusal to compare Kerala against Punjab is replaced by the measure that makes
   the comparison possible.
 
-- **The README is organised by claim rather than by analysis.** It had nine
+- **The README is organized by claim rather than by analysis.** It had nine
   sections, one per analysis, numbered in the order the analyses were built,
   which is a table of contents and not an argument. The structure also could not
   hold: analysis 08 is both a measurement result and a differential result, and
@@ -213,7 +213,7 @@ One wrong sentence in the most citable claim, and the reversal it forces.
   `by_caste` now reports `wrong_per_100`, `blind_wrong_per_100` and the old
   quantity renamed `name_vagueness_per_100`, and the figure plots recall error
   against each group's own blind rate rather than plotting vagueness under an
-  axis labelled as error.
+  axis labeled as error.
 - Coverage for the sex split is now measured after the merge onto the caste
   table in analysis 05's own note, matching the front page.
 
@@ -246,7 +246,7 @@ average, is the finding.
   outside the schedules, 17. The method is accurate about the advantaged and
   blind about the disadvantaged. *(Corrected in Unreleased: the 29 was not what
   this sentence claims it was.)*
-- **06 neighbours.** Holding out whole villages, the surrounding surnames rescue
+- **06 neighbors.** Holding out whole villages, the surrounding surnames rescue
   precisely the names that say nothing alone. Chaudhary goes from 80 mistakes to
   56. The bracket closes at 9 once the roll's cues are matched against a caste
   register.

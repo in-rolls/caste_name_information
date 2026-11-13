@@ -144,7 +144,7 @@ does not explain. Ten states is also few enough that one such case moves the
 number appreciably. The two ends are the solid part of this, and the middle is
 not.
 
-What this is not is an identified mediation. Nothing here is randomised and no
+What this is not is an identified mediation. Nothing here is randomized and no
 counterfactual is estimated. It describes where the pairs sit, and the residual
 is real: Punjab's other names reach only
 0.64

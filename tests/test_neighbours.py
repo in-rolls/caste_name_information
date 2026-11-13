@@ -1,4 +1,4 @@
-"""Invariants for the held-out neighbours test."""
+"""Invariants for the held-out neighbors test."""
 
 from __future__ import annotations
 
@@ -46,7 +46,7 @@ def test_neighbours_help_but_do_not_rescue(held_out):
 
 def test_neighbours_alone_are_useless(held_out):
     """The check that caught a broken first design. Averaging P(jati|surname)
-    over neighbours scored worse than blind, and the combined model still
+    over neighbors scored worse than blind, and the combined model still
     'improved' the headline by 0.1 -- noise dressed as a result. Co-occurrence
     cannot identify you, only tilt you, so this must stay bad."""
     for ladder in held_out.index:

@@ -45,7 +45,7 @@ LOG_COLUMNS = [
 
 # Names that mark a religion rather than a caste. They are near-perfect "not
 # Dalit" tells -- together 4.8% of non-Dalit draws against 0.1% of Dalit draws,
-# at compositions around 0.2% to 1.6% Dalit -- so a player who recognises them
+# at compositions around 0.2% to 1.6% Dalit -- so a player who recognizes them
 # wins those rounds without knowing anything about caste. This repo does not
 # treat religion as a feature, and a game that rewards it would.
 RELIGION_MARKED = frozenset("""

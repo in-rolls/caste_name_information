@@ -46,7 +46,7 @@ def test_the_top25_control_preserves_the_ordering(states):
     The floor keeps a state's commonest names and common names are the
     uninformative ones, so a state retaining few names could look uninformative
     by construction. If the ordering only held before this control, the result
-    would be an artefact of the floor rather than a fact about the states.
+    would be an artifact of the floor rather than a fact about the states.
     """
     for good in ("assam", "bihar"):
         for bad in ("punjab", "haryana", "kerala"):

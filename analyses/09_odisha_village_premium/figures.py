@@ -85,7 +85,7 @@ def atrophy(ladders: dict, blinds: dict, out: Path) -> None:
 
     The administrative units are not equivalent across the two states, so the
     axis is the rank of a unit's size rather than a common unit, and each rung
-    is labelled with both names. What the figure shows is the shape: the two
+    is labeled with both names. What the figure shows is the shape: the two
     lines meet where the place is thrown away and separate as it is restored.
     """
     rungs = ["village", "middle", "larger", "alone"]
@@ -112,7 +112,7 @@ def atrophy(ladders: dict, blinds: dict, out: Path) -> None:
             )
     # The two blind rates are a point apart, so one label per line printed at
     # the line's own height lands on top of the other. They are stacked by
-    # rank instead, and each still carries its own colour and number.
+    # rank instead, and each still carries its own color and number.
     for rank, (place, value) in enumerate(
         sorted(blinds.items(), key=lambda kv: -kv[1])
     ):

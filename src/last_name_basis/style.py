@@ -16,7 +16,7 @@ INK = "#1c1c1c"
 ACCENT = "#b8322f"
 MUTED = "#9a9a9a"
 
-# Categorical fill for caste-like groups, ordered so the first colours read as
+# Categorical fill for caste-like groups, ordered so the first colors read as
 # the marked categories and the last as the residual.
 CATEGORY_FILL = ["#8d2420", "#e0a33e", "#5c7a8f", "#8f6f9e", "#7d9a6b", "#d3d3d3"]
 

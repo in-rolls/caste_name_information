@@ -72,7 +72,7 @@ recruitment list drawn from across the state, this data cannot say.
 
 Every figure is leave-one-out: a candidate's own record is excluded from the
 table used to score them. Most surnames here appear once or twice, so a plug-in
-score would report memorisation. A cue is used when at least one *other*
+score would report memorization. A cue is used when at least one *other*
 candidate shares it, which is the rule analysis 09 uses; requiring two instead
 moves the headline from 40.0 to 43.9.
 

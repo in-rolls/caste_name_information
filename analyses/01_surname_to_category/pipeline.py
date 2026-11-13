@@ -105,7 +105,7 @@ def main() -> None:
 
     # Two weightings of the same table. SECC weights by whose household the
     # census recorded; roll weights by who you would actually meet. Each is
-    # summarised against its own prior -- mixing them breaks the arithmetic.
+    # summarized against its own prior -- mixing them breaks the arithmetic.
     h["coverage_national"] = cov.national_coverage(build("secc"))
 
     # The quiz's table. Committed, unlike out/tab, because the deployed app

@@ -1,4 +1,4 @@
-"""Do neighbours rescue an uninformative surname? Entry point: `make a06`."""
+"""Do neighbors rescue an uninformative surname? Entry point: `make a06`."""
 
 from __future__ import annotations
 
@@ -104,7 +104,7 @@ def main() -> None:
             ["surname"] + mahadalit.attrs["geo"],
             ["surname"],
         ]
-        # Score on the very same held-out villages the neighbour rungs use.
+        # Score on the very same held-out villages the neighbor rungs use.
         # Deriving a split independently does NOT do this: naampata's ladder
         # covers 27,687 villages and the raw files 28,602, so shuffling the two
         # lists put only 2,509 of ~8,300 test villages in common and the bracket

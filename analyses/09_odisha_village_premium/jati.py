@@ -26,7 +26,7 @@ different kinds of claim:
                  rejected -- is published with both of its scores.
 
 `drop_rare`      A label carried by a handful of households in a single
-                 village is a recording artefact, not a jati. Two thirds of the
+                 village is a recording artifact, not a jati. Two thirds of the
                  label strings are of that kind, and quoting them as a group
                  count makes the target look an order of magnitude harder than
                  it is next to Bihar's 141 curated jatis. What qualifies a label
@@ -84,12 +84,12 @@ MIN_PROFILE = 0.25
 # than merged on spelling alone.
 MIN_HOUSEHOLDS = 25
 
-# A jati recorded in one village out of ten thousand is an artefact of that
+# A jati recorded in one village out of ten thousand is an artifact of that
 # village's clerk: 2,938 labels sit in a single village, with a median size of
 # one household. Reach is the test, and size is a proxy for it. A flat size
 # floor alone removed ମହିଶ୍ୟ (47 households across 26 villages), ଚନ୍ଦ୍ର ବଂଶି
 # (48 across 30) and ପାଟସାଲିଆ (47 across 23) for missing fifty by a household
-# or two, which is not a defensible thing to have done to recognised castes.
+# or two, which is not a defensible thing to have done to recognized castes.
 # A label carried across many villages has earned its place whatever its size.
 MIN_JATI_HOUSEHOLDS = 50
 MIN_JATI_VILLAGES = 2

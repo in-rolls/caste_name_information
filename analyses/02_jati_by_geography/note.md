@@ -108,7 +108,7 @@ mistake per hundred.
 ## What this does not cover
 
 - **Bihar only.** The ladders are built from Bihar land records and a Bihar
-  census. Nothing here generalises to states where jatis, surnames or settlement
+  census. Nothing here generalizes to states where jatis, surnames or settlement
   patterns differ.
 - **Landowners only.** The records ladder counts land-owning accounts, so it is
   not a random slice of Bihar. It under-represents exactly the landless

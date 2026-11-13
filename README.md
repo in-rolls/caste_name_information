@@ -39,7 +39,7 @@ comparable.
 ## The data, and why it takes several kinds
 
 Indian electoral rolls do not record caste, and the caste census does not record
-where a household sits relative to its neighbours. Given that no single source
+where a household sits relative to its neighbors. Given that no single source
 carries both, the analyses below combine five.
 
 | what it gives | what it cannot give | source |
@@ -243,7 +243,7 @@ depends on.
 **That comparison knows the village in advance**, which is the position of
 someone who already knows the place and not of a stranger. Holding whole
 villages out of the fitting leaves only the surnames of the *other* households
-there as a cue. On the Bihar land records those neighbours save about four
+there as a cue. On the Bihar land records those neighbors save about four
 mistakes per 100. The average hides the case: **Chaudhary goes from 80 mistakes
 to 56, Prasad from 72 to 54**, while Paswan, which already identifies you at 6,
 gains nothing. **The names that carry no caste information alone are the ones
@@ -386,7 +386,7 @@ Caste is printed on no electoral roll, so the question a roll actually poses is
 what its cues are worth to someone who can match them against a caste register
 of the same population. Across 887,512 Scheduled Caste households in 8,307
 held-out villages, sorted into 22 jatis: knowing nothing leaves 59 mistakes per
-100, the surname alone leaves **30**, neighbours bring that to **26**, and the
+100, the surname alone leaves **30**, neighbors bring that to **26**, and the
 name, the father's name and the hamlet together with a caste register leave
 **9**.
 
@@ -405,7 +405,7 @@ Each owns its pipeline, data loading, figures, note and `out/`.
 | [03 how few names](analyses/03_how_few_names) | how concentrated Indian naming is, and what a sex-marking name does to that count |
 | [04 which token is the surname](analyses/04_which_token_is_the_surname) | which token transmits between family members |
 | [05 who has an uninformative name](analyses/05_who_has_an_uninformative_name) | who the guess fails, by their own caste and by sex |
-| [06 neighbours](analyses/06_neighbours) | held-out villages, the neighbour cue, and the ceiling with a caste register |
+| [06 neighbours](analyses/06_neighbours) | held-out villages, the neighbor cue, and the ceiling with a caste register |
 | [07 where the name works](analyses/07_where_the_name_works) | the spread across fifteen states |
 | [08 Karnataka PSC](analyses/08_karnataka_psc) | the only caste-linked name data for a state absent from SECC |
 | [09 Odisha village premium](analyses/09_odisha_village_premium) | whether the village premium travels outside Bihar |
@@ -444,7 +444,7 @@ your choosing.
 
 The quiz also drops two kinds of name that would make it a worse instrument than
 it looks. Religion-marked surnames are near-perfect "not Dalit" tells, carrying
-4.8% of non-Dalit draws against 0.1% of Dalit ones, so a player who recognises
+4.8% of non-Dalit draws against 0.1% of Dalit ones, so a player who recognizes
 them wins without knowing anything about caste. And one surname spelled two
 ways, `sing` against `singh`, asks about transliteration. Removing both costs
 one point of the score the data achieves.

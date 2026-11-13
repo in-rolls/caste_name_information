@@ -50,7 +50,7 @@ of the record**, and moves the premium by
 Size alone was the wrong test and the removal list said so. A flat floor of
 fifty households cut `ମହିଶ୍ୟ` (47 households across 26 villages), `ଚନ୍ଦ୍ର ବଂଶି`
 (48 across 30) and `ପାଟସାଲିଆ` (47 across 23) for missing the round number by a
-household or two, which is not a defensible thing to have done to recognised
+household or two, which is not a defensible thing to have done to recognized
 castes. A label carried across many villages has earned its place whatever its
 size, and what the floor now removes is led by `ତିବତିୟାନ` -- Tibetan, 173
 households in one village -- `ବିବାହିତା ଶୁଣ୍ଢି`, which is a phrase rather than a
@@ -95,7 +95,7 @@ a pooled figure too, so the pooled row is the like-for-like comparison.
 
 ## Three choices that could have produced this result, and did not
 
-A result assembled from a scraped record and a normalisation layer invites the
+A result assembled from a scraped record and a normalization layer invites the
 objection that the analyst's choices produced it. Three such choices were varied.
 
 **How readily two spellings are judged one jati.** Spelling proposes a merge

@@ -93,7 +93,7 @@ almost everything, and you get five. No individual encounter looks like five.
 
 ![Mistakes using the name against mistakes ignoring it](../out/fig/err_vs_blind.png)
 
-Every grey dot sitting on that diagonal is a name that left your answer exactly
+Every gray dot sitting on that diagonal is a name that left your answer exactly
 where it already was. The big dots — the names carried by the most people — are
 all on it.
 
@@ -220,7 +220,7 @@ Worth saying how that number was arrived at, because the naive version is three
 times larger and wrong. Plug-in error puts the rare group at 18.1, but 40,076 of
 the 50,848 rarest names in that census have a single bearer, and a name carried
 by one person is "predicted" perfectly by construction. Scoring each person
-against a table that excludes them removes the artefact and two-thirds of the
+against a table that excludes them removes the artifact and two-thirds of the
 apparent gap with it.
 
 **The cautious data makes names look worse, not better.** The published table
