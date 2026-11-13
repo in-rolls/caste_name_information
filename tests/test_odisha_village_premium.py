@@ -50,7 +50,7 @@ def test_the_result_survives_the_normalisation_choice(summary):
     The jati labels are raw Odia strings merged by a layer written here rather
     than by a curated dictionary, so the gate that confirms a merge is an
     analyst's choice. If the premium moved with it, the result would be an
-    artefact of that choice.
+    artifact of that choice.
     """
     sens = pd.DataFrame(summary["sensitivity"])
     assert len(sens) >= 3
@@ -112,7 +112,7 @@ def test_the_sampling_limit_is_recorded(summary):
     Not read off the --per-village flag: that is a per-run cap, it has changed
     between runs and is now effectively off, and villages accumulate across
     runs. A finished village is censused; one the crawl is still working
-    through is not, and only the realised distribution separates them.
+    through is not, and only the realized distribution separates them.
     """
     sampling = summary["sampling"]
     assert sampling["khatiyans_per_village_median"] > 0
@@ -142,7 +142,7 @@ def test_the_two_ladders_cross_at_the_village(summary):
     This test used to assert the ladders meet at the surname alone and part at
     the village. They no longer meet: confirming the spelling variants lowered
     Odisha's surname-alone rung from 46.8 to 44.2, and the earlier coincidence
-    at 47 turns out to have been partly an artefact of unmerged labels
+    at 47 turns out to have been partly an artifact of unmerged labels
     inflating that rung.
 
     What survives is a structural claim, and a stronger one. Odisha is the
@@ -158,7 +158,7 @@ def test_the_two_ladders_cross_at_the_village(summary):
     odisha = summary["ladder"]
     assert odisha[-1] < bihar[-1], "Odisha should be easier at the surname alone"
     assert odisha[0] > bihar[0], "Bihar should be easier once the village is known"
-    # And the crossing is not a rounding artefact at either end.
+    # And the crossing is not a rounding artifact at either end.
     assert bihar[-1] - odisha[-1] > 1
     assert odisha[0] - bihar[0] > 1
 
@@ -187,10 +187,10 @@ def test_the_floor_removes_local_labels_rather_than_small_ones(summary):
     """Size alone was the wrong test, and the removal list is what said so.
 
     A flat fifty-household floor cut ମହିଶ୍ୟ, ଚନ୍ଦ୍ର ବଂଶି and ପାଟସାଲିଆ -- each
-    recognised, each spread over twenty or more villages -- for missing a round
+    recognized, each spread over twenty or more villages -- for missing a round
     number by a household or two. Reach carries the rule now, so what it removes
     should still be dominated by labels confined to one village. If that share
-    falls, the floor has started removing widespread jatis instead of artefacts.
+    falls, the floor has started removing widespread jatis instead of artifacts.
     """
     path = TAB / "jati_floored.csv"
     if not path.exists():

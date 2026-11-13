@@ -1,13 +1,13 @@
 """Does knowing who lives around you rescue an uninformative surname?
 
 Analysis 02 shows surname plus village is far better than surname alone. That
-comparison memorises the village: it learns the jati mix of every particular
+comparison memorizes the village: it learns the jati mix of every particular
 village and looks yours up. It says nothing about a stranger in a village you
 have never seen, which is the situation anyone actually inferring caste is in.
 
-So hold out whole villages. On a held-out village the memorised table is
+So hold out whole villages. On a held-out village the memorized table is
 undefined, and the only thing available is the *composition* of the other
-surnames there. If that generalises, the repo's negative result needs
+surnames there. If that generalizes, the repo's negative result needs
 qualifying.
 
 The cue is deliberately simple and interpretable. For village V, take every
@@ -62,7 +62,7 @@ def cooccurrence(train: pd.DataFrame, jatis: list[str], weight: str) -> tuple:
     """P(neighbour surname | your jati), from training villages.
 
     This is the model the first attempt got wrong. Averaging P(jati|surname)
-    over the neighbours produces a near-uniform smear -- entropy 3.83 out of a
+    over the neighbors produces a near-uniform smear -- entropy 3.83 out of a
     possible 4.93 across 139 jatis -- and a predictor built on it scores worse
     than knowing nothing. The generative question is the right one: which
     surnames do people of jati j actually live among?
@@ -87,7 +87,7 @@ def cooccurrence(train: pd.DataFrame, jatis: list[str], weight: str) -> tuple:
         for j, n_j in zip(present["jati"], present[weight]):
             row = table[j_pos[j]]
             np.add.at(row, idx, w * n_j)
-            # Households do not count themselves as their own neighbours.
+            # Households do not count themselves as their own neighbors.
             row[idx] -= 0.0
         del total
     table += SMOOTH
@@ -107,7 +107,7 @@ def fit_and_score(
     score(j) = log P(j | surname) + alpha * sum_t f_t log P(t | j)
 
     where f_t is the share of the village's other households carrying surname t.
-    alpha damps the neighbour term because neighbours are not independent draws;
+    alpha damps the neighbor term because neighbors are not independent draws;
     alpha = 0 recovers surname-only. It is fit on training villages.
     """
     jatis = sorted(vsj["jati"].unique())
@@ -194,7 +194,7 @@ def fit_and_score(
 def per_surname(
     vsj: pd.DataFrame, weight: str, alpha: float, top: int = 14
 ) -> pd.DataFrame:
-    """Does the neighbour cue rescue the names that say nothing on their own?
+    """Does the neighbor cue rescue the names that say nothing on their own?
 
     The average can move by four while the common uninformative names move by
     twenty, and it is those names the question was about.

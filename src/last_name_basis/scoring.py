@@ -21,7 +21,7 @@ def entropy_bits(prior) -> float:
 def weighted_summary(
     frame: pd.DataFrame, prob_cols: list[str], weight: str, categories: list[str]
 ) -> dict:
-    """Summarise a per-group table under a people-weighting, prior and all.
+    """Summarize a per-group table under a people-weighting, prior and all.
 
     The prior is recomputed from these weights. Averaging against a prior from
     some other weighting silently breaks the identity that makes the average

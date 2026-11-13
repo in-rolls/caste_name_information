@@ -31,3 +31,8 @@ line-length = 88
 [tool.isort]
 profile = "black"
 line_length = 88
+
+[tool.codespell]
+builtin = "clear,rare,en-GB_to_en-US"
+skip = "*.pdf,*.png,*.jpg,*.jpeg,*.gif,*.csv,*.tsv,*.json,*.geojson,*.graphml,*.ipynb,*.html,*.svg,*.bib,*.bbl,*.lock,*.parquet,*.rda,*.rds,*.RData,*.dta,*.xlsx,*.xml,*.min.js,*.map,*.log,*.aux"
+ignore-words-list = "artefact,colour,colours,generalises,grey,labelled,memorisation,memorised,memorises,memorising,neighbour,neighbours,normalisation,normalise,randomised,recognised"

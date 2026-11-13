@@ -94,7 +94,7 @@ def score(d: pd.DataFrame, key: str, min_cell: int = 1) -> dict:
 
     Leave-one-out is not optional here. Most surnames appear once or twice, so
     scoring a person against a table their own row built would report a number
-    about memorisation.
+    about memorization.
 
     `min_cell` is how many *other* candidates must share a cue before it is used
     instead of the blind guess. One, matching analysis 09, so the two are

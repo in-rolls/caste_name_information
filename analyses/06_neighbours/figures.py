@@ -1,4 +1,4 @@
-"""Figures for the neighbours analysis."""
+"""Figures for the neighbors analysis."""
 
 from __future__ import annotations
 

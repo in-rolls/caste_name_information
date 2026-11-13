@@ -28,7 +28,7 @@ def mistakes_by_rank(named: pd.DataFrame, baseline: float, out: Path, annotate=(
 
     The gradient is a step, not a slope: the ten commonest names are the least
     help in the table, and past them the median is flat in rank. Rolling stats
-    start after the top ten so the centred window cannot smear the step across
+    start after the top ten so the centered window cannot smear the step across
     the very names the step is about.
     """
     d = named.sort_values("n", ascending=False).reset_index(drop=True)
@@ -302,7 +302,7 @@ def random_hundred(named: pd.DataFrame, baseline: float, out: Path, label_top=6)
 
 
 def name_waffles(named: pd.DataFrame, names: list[str], out: Path):
-    """For each name: a hundred people who have it, coloured by caste category."""
+    """For each name: a hundred people who have it, colored by caste category."""
     palette = {"sc": ACCENT, "st": "#e0a33e", "other": "#d3d3d3"}
     d = named.set_index("last_name").loc[names].sort_values("p_sc")
 

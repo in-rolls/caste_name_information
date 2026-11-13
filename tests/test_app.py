@@ -129,7 +129,7 @@ def test_religion_marked_names_are_kept_out_of_the_game(quiz):
 
     khan, ali, bibi, ansari and the rest sit at 0.2% to 1.6% Dalit and together
     carry 4.8% of non-Dalit draws against 0.1% of Dalit draws. A player who
-    recognises them takes those rounds without knowing anything about caste,
+    recognizes them takes those rounds without knowing anything about caste,
     and this repo does not treat religion as a feature.
     """
     shipped = set(pd.read_csv(APP / "data" / "names.csv")["last_name"])

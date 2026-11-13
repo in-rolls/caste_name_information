@@ -105,7 +105,7 @@ def main() -> None:
     result["refused"].to_csv(TAB / "jati_refused.csv", index=False)
     result["floored"].to_csv(TAB / "jati_floored.csv", index=False)
 
-    # Both sweeps below vary what the normalisation keeps, so they have to see
+    # Both sweeps below vary what the normalization keeps, so they have to see
     # the rows it would drop. Scoring them against the frame already filtered by
     # the default settings made every setting return the default's answer.
     every = frame

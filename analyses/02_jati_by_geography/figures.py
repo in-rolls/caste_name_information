@@ -201,7 +201,7 @@ def rung_waffles(
 
     # Rank jatis by the largest share they reach in ANY panel, not by total
     # accounts. Totals are dominated by the statewide panel, which left the
-    # village's own majority jati uncoloured and the panel 87 squares of grey.
+    # village's own majority jati uncoloured and the panel 87 squares of gray.
     reach = {}
     for _, g in panels:
         if g.empty:

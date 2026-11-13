@@ -1,12 +1,12 @@
-# 06 — Does knowing your neighbours give you away?
+# 06 — Does knowing your neighbors give you away?
 
-Analysis 02's "surname + village" **memorises the village**. This holds out whole
+Analysis 02's "surname + village" **memorizes the village**. This holds out whole
 villages, so the only thing available is the composition of the *other* surnames
 there — the situation anyone inferring caste about a stranger is actually in.
 
 **On average it helps a little.** In villages never seen during fitting, the
-name alone costs 48 mistakes per 100 and the name plus neighbours costs 44.
-About four saved, against the 48-to-17 gap that memorising the village closes.
+name alone costs 48 mistakes per 100 and the name plus neighbors costs 44.
+About four saved, against the 48-to-17 gap that memorizing the village closes.
 
 **But the average hides the answer.** The claim was about particular names, and
 those move far more: Chaudhary **80 → 56**, Prasad **72 → 54**, Devi and Singh
@@ -36,13 +36,13 @@ households that share no cell with anyone, scoring only people with a same-named
 relative in the same hamlet. Answering for everybody gives 9.1.
 
  Averaging
-`P(jati | surname)` over the neighbours yields a near-uniform smear and scores
+`P(jati | surname)` over the neighbors yields a near-uniform smear and scores
 *worse than blind*; it moved the headline 0.1 and would have licensed a false
-null. Scoring the neighbour cue alone is what caught it and is now a permanent
+null. Scoring the neighbor cue alone is what caught it and is now a permanent
 test. A second correction: the mixing parameter's search range topped out below
 the optimum, which understated the gain by half.
 
 **Limits.** Bihar only; landowning households for one ladder. Village-level
-composition, not true walk-order neighbours — rolls have house numbers but no
+composition, not true walk-order neighbors — rolls have house numbers but no
 caste, so a finer cue could not be scored and is left unmeasured. Aggregate error
 rates only; no model or per-person output is published.

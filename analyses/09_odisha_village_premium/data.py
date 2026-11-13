@@ -12,11 +12,11 @@ a footnote:
 
 **This is one district, not a state.** The scrape has reached district 24,
 Gajapati, and no further. Gajapati is small, heavily Adivasi and on the Andhra
-border; its castes are not Odisha's. Nothing here may be labelled "Odisha".
+border; its castes are not Odisha's. Nothing here may be labeled "Odisha".
 
 **Each village is a sample.** The fetch caps khatiyans per village, and the cap
 has changed between runs, so villages accumulate rather than being censused. The
-realised distribution is measured from the data rather than assumed from a
+realized distribution is measured from the data rather than assumed from a
 command line, because a constant written here goes stale the moment the scrape
 is restarted with a different flag. Village cells are small either way, so
 leave-one-out is not optional.
@@ -79,7 +79,7 @@ def materialise() -> None:
 
     The parser is imported rather than copied, so a fix there reaches here.
     Nothing is written back into that repository: a scrape runs in it, and its
-    own `tenants.parquet` is a build artefact of a process this analysis does
+    own `tenants.parquet` is a build artifact of a process this analysis does
     not own.
 
     Raises:
@@ -141,7 +141,7 @@ def village_sampling(d: pd.DataFrame) -> dict:
     Not the `--per-village` flag: that is a per-run cap, villages accumulate
     across runs, and the flag has changed between runs. It is now effectively
     off, so a finished village is censused rather than sampled -- but a village
-    the scrape is still working through is not, and only the realised
+    the scrape is still working through is not, and only the realized
     distribution can tell the two apart.
     """
     per = d.groupby(["district_code", "tahsil_code", "village_code"])[
@@ -199,7 +199,7 @@ def score(d: pd.DataFrame, keys: list[str], group: str = "jati") -> dict:
     truth = d[group].map(index).to_numpy()
     # `.agg("|".join, axis=1)` is a Python call per row, which is most of the
     # runtime at five million of them. `str.cat` builds the same strings in one
-    # vectorised pass.
+    # vectorized pass.
     if len(keys) > 1:
         first, *rest = keys
         cell = d[first].astype(str).str.cat([d[k].astype(str) for k in rest], sep="|")
