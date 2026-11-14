@@ -9,14 +9,11 @@ from __future__ import annotations
 
 import csv
 import gzip
-import os
 from pathlib import Path
 
 import pandas as pd
 
-
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
+from last_name_basis.siblings import repo
 
 
 def instate_table() -> Path | None:
@@ -28,7 +25,7 @@ def instate_table() -> Path | None:
             return p
     except (ImportError, ModuleNotFoundError):
         pass
-    p = _github() / "instate/src/instate/data/instate_unique_ln_state_prop_v2.parquet"
+    p = repo("instate") / "src/instate/data/instate_unique_ln_state_prop_v2.parquet"
     return p if p.exists() else None
 
 
@@ -47,7 +44,7 @@ def roll_token_census(state: str = "delhi") -> dict | None:
     Read from the raw per-state roll rather than the derived table, so it is an
     independent count.
     """
-    path = _github() / f"instate/data/names_{state}.csv.gz"
+    path = repo("instate") / f"data/names_{state}.csv.gz"
     if not path.exists():
         return None
     by_tokens: dict[int, int] = {}

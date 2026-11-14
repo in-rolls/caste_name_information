@@ -9,7 +9,7 @@ away from ``last_name`` by a later sort.
 
 from __future__ import annotations
 
-import os
+from importlib.resources import files
 from pathlib import Path
 
 import pandas as pd
@@ -26,17 +26,8 @@ _REL = "data/secc/secc_surname_composition.parquet"
 
 
 def secc_path() -> Path:
-    """Prefer the installed package; fall back to a sibling working copy."""
-    try:
-        from importlib.resources import files
-
-        p = Path(str(files("outkast"))) / _REL
-        if p.exists():
-            return p
-    except (ImportError, ModuleNotFoundError):
-        pass
-    github = Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-    return github / "outkast/src/outkast" / _REL
+    """The table shipped inside the installed outkast package."""
+    return Path(str(files("outkast"))) / _REL
 
 
 def load_cells(

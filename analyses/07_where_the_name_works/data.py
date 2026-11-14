@@ -26,7 +26,6 @@ computed here rather than left to the note:
 from __future__ import annotations
 
 import importlib.util
-import os
 import sys
 from pathlib import Path
 
@@ -134,10 +133,6 @@ def decisive_names(per: pd.DataFrame, state: str, k: int = 3) -> pd.DataFrame:
     )
 
 
-def github_dir() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
 def roll_concentration(state: str) -> dict | None:
     """How concentrated a state's surnames are, from upnaam's resolved roll.
 
@@ -151,7 +146,7 @@ def roll_concentration(state: str) -> dict | None:
     """
     from last_name_basis.upnaam import iter_resolved_roll, resolved_roll_path
 
-    path = resolved_roll_path(state, github_dir=github_dir())
+    path = resolved_roll_path(state)
     if not path.exists():
         return None
 

@@ -50,7 +50,8 @@ def test_iter_resolved_roll_rejects_wrong_revision(tmp_path: Path) -> None:
         list(iter_resolved_roll(path, state="maharashtra"))
 
 
-def test_resolved_roll_path_is_state_scoped(tmp_path: Path) -> None:
-    assert resolved_roll_path("bihar", github_dir=tmp_path) == (
-        tmp_path / "upnaam/data/derived/resolved/bihar.parquet"
+def test_resolved_roll_path_is_state_scoped(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setenv("GITHUB_DIR", str(tmp_path))
+    assert resolved_roll_path("bihar") == (
+        tmp_path / "in-rolls/upnaam/data/derived/resolved/bihar.parquet"
     )

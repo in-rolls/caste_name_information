@@ -23,12 +23,13 @@ caste-only buckets and the dropped share is reported.
 
 from __future__ import annotations
 
-import os
 import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from last_name_basis.siblings import repo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent / "src"))
 
@@ -38,14 +39,10 @@ HERE = Path(__file__).resolve().parent
 CASTE_BUCKETS = {"Scheduled Caste", "Scheduled Tribe", "OBC or other Hindu", "Forward"}
 
 
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
 def source_path() -> Path:
     return (
-        _github()
-        / "pranaam/scripts/data-acquisition/kerala_psc/raw/psc_candidates.parquet"
+        repo("pranaam")
+        / "scripts/data-acquisition/kerala_psc/raw/psc_candidates.parquet"
     )
 
 

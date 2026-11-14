@@ -12,11 +12,12 @@ stated in the note rather than left for a reader to discover:
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from last_name_basis.siblings import repo
 
 # outkast covers these; the crosswalk lets analysis 03 join to analysis 01.
 OUTKAST_TO_INSTATE = {
@@ -43,10 +44,6 @@ OUTKAST_TO_INSTATE = {
 FEATURED = ["Punjab", "Bihar", "Uttar Pradesh", "Delhi", "Tamil Nadu", "Kerala"]
 
 
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
 def instate_table() -> Path | None:
     try:
         from importlib.resources import files
@@ -56,7 +53,7 @@ def instate_table() -> Path | None:
             return p
     except (ImportError, ModuleNotFoundError):
         pass
-    p = _github() / "instate/src/instate/data/instate_unique_ln_state_prop_v2.parquet"
+    p = repo("instate") / "src/instate/data/instate_unique_ln_state_prop_v2.parquet"
     return p if p.exists() else None
 
 
@@ -93,8 +90,8 @@ def kerala_initial_share() -> float | None:
     overall -- so nothing here touches it.
     """
     p = (
-        _github()
-        / "pranaam/scripts/data-acquisition/kerala_psc/raw/psc_candidates.parquet"
+        repo("pranaam")
+        / "scripts/data-acquisition/kerala_psc/raw/psc_candidates.parquet"
     )
     if not p.exists():
         return None
@@ -124,7 +121,7 @@ def first_name_gender(min_bearers: int = 200) -> dict[str, float] | None:
     Used to ask who carries which last name. The gender comes from the first
     name and the question is about the last name, so the two are independent.
     """
-    p = _github() / "naampy/in_rolls_state_year_fn_naampy.csv.gz"
+    p = repo("naampy") / "in_rolls_state_year_fn_naampy.csv.gz"
     if not p.exists():
         return None
     d = pd.read_csv(p, usecols=["first_name", "n_female", "n_male"])
@@ -142,7 +139,7 @@ def sex_marked_share(state: str, gender: dict[str, float]) -> dict | None:
     import csv
     import gzip
 
-    path = _github() / f"instate/data/names_{state}.csv.gz"
+    path = repo("instate") / f"data/names_{state}.csv.gz"
     if not path.exists():
         return None
 

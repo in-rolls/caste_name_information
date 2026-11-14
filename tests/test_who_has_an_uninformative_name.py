@@ -69,7 +69,7 @@ def test_the_sex_gap_does_not_run_one_way():
 
 
 def test_sex_weights_use_upnaam_surname_order(tmp_path, monkeypatch):
-    artifact = tmp_path / "upnaam/data/derived/resolved/maharashtra.parquet"
+    artifact = tmp_path / "in-rolls/upnaam/data/derived/resolved/maharashtra.parquet"
     artifact.parent.mkdir(parents=True)
     pd.DataFrame(
         {

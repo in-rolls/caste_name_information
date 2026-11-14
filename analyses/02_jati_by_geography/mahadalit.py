@@ -11,10 +11,11 @@ within-Dalit across 22 jatis and are not comparable to the 141-jati land ladder.
 from __future__ import annotations
 
 import glob
-import os
 from pathlib import Path
 
 import pandas as pd
+
+from last_name_basis.siblings import repo
 
 # Finest to coarsest. The keys nest, so each rung is a strict coarsening.
 GEO = ["district", "block", "panchayat_nagar", "vill_ward", "tola_basti"]
@@ -48,8 +49,7 @@ RUNG_LABEL = {
 
 
 def census_dir() -> Path:
-    github = Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-    return github / "land/data/mahadalit_census_district_wise_csv"
+    return repo("land") / "data/mahadalit_census_district_wise_csv"
 
 
 def load() -> pd.DataFrame | None:

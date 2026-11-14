@@ -1,6 +1,6 @@
 """Bihar ladders: what a surname buys you at successively coarser geographies.
 
-Two ready-made ladders ship inside the `naampata` package in the `jati` repo.
+Two ready-made ladders ship inside the `naampata` package in the `naampata` repo.
 Both are already aggregated to (level, cell, group) counts, so nothing here
 touches the individual-level files in `land/data/derived/`, which run to a
 gigabyte apiece.
@@ -12,10 +12,11 @@ flag alongside each caste's category.
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import pandas as pd
+
+from last_name_basis.siblings import repo
 
 # Rungs from finest to coarsest, so a ladder always plots in the right order.
 RECORD_RUNGS = ["surname+village", "surname+zone", "surname+district", "surname"]
@@ -41,10 +42,6 @@ RUNG_LABEL = {
 }
 
 
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
 def _naampata(name: str) -> Path | None:
     try:
         from importlib.resources import files
@@ -54,7 +51,7 @@ def _naampata(name: str) -> Path | None:
             return p
     except (ImportError, ModuleNotFoundError):
         pass
-    p = _github() / "jati/src/naampata/data" / name
+    p = repo("naampata") / "src/naampata/data" / name
     return p if p.exists() else None
 
 
@@ -77,7 +74,7 @@ def caste_dictionary() -> pd.DataFrame | None:
     folded into those same categories -- Sheikh and Pathan sit in `uc`, Momin
     and Ansari in `ebc` -- so religion has to come from the separate flag.
     """
-    p = _github() / "land/data/caste_codes/caste_dictionary_n292.dta"
+    p = repo("land") / "data/caste_codes/caste_dictionary_n292.dta"
     if not p.exists():
         return None
     d = pd.read_stata(p)

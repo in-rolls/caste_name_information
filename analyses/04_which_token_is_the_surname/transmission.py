@@ -15,18 +15,18 @@ from __future__ import annotations
 
 import csv
 import gzip
-import os
 from collections import Counter, defaultdict
 from pathlib import Path
 
 import pandas as pd
 
+from last_name_basis.siblings import repo
+
 MIN_TOKEN = 2  # single letters are initials, not names
 
 
 def roll_path(state: str) -> Path:
-    github = Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-    return github / f"instate/data/names_{state}.csv.gz"
+    return repo("instate") / f"data/names_{state}.csv.gz"
 
 
 def shared_tokens(name: str, relative: str) -> list[tuple[int, str]]:

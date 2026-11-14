@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-import os
 from collections.abc import Iterator
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import pyarrow.parquet as pq
+
+from last_name_basis.siblings import repo
 
 RESOLVER_REVISION = "resolver-v1"
 ROLL_COLUMNS = (
@@ -23,15 +24,9 @@ ROLL_COLUMNS = (
 )
 
 
-def _github() -> Path:
-    """Return the local checkout root used by the research repositories."""
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
-def resolved_roll_path(state: str, *, github_dir: Path | None = None) -> Path:
+def resolved_roll_path(state: str) -> Path:
     """Return the expected local Upnaam artifact for one state."""
-    root = github_dir or _github()
-    return root / "upnaam" / "data" / "derived" / "resolved" / f"{state}.parquet"
+    return repo("upnaam") / "data" / "derived" / "resolved" / f"{state}.parquet"
 
 
 def iter_resolved_roll(

@@ -28,11 +28,12 @@ and dirty: values like "BELAGAVI BELAGAVI").
 
 from __future__ import annotations
 
-import os
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from last_name_basis.siblings import repo
 
 # Karnataka's backward-class categories. 2B is defined by religion, so it is
 # folded into one OBC bucket rather than reported on its own, which is the norm
@@ -41,14 +42,10 @@ OBC_CODES = {"2A", "2B", "3A", "3B", "C1", "CAT1"}
 CATEGORY = {"GM": "General", "SC": "Scheduled Caste", "ST": "Scheduled Tribe"}
 
 
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
-
-
 def source_path() -> Path:
     return (
-        _github()
-        / "pranaam/scripts/data-acquisition/karnataka_psc/raw"
+        repo("pranaam")
+        / "scripts/data-acquisition/karnataka_psc/raw"
         / "karnataka_candidates.parquet"
     )
 

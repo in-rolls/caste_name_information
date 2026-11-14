@@ -134,7 +134,7 @@ def fit_and_score(
             zip(by_vs["village"], by_vs["si"], by_vs[weight], totals)
         ):
             rows_by_v.setdefault(v, []).append(i)
-            if not np.isnan(si):
+            if pd.notna(si):
                 acc[v] = acc.get(v, 0.0) + (w / tot) * log_cooc[:, int(si)]
         for v, idxs in rows_by_v.items():
             base = acc.get(v, np.zeros(len(jatis)))
@@ -142,7 +142,7 @@ def fit_and_score(
                 si = by_vs["si"].iloc[i]
                 own = (
                     (by_vs[weight].iloc[i] / totals.iloc[i]) * log_cooc[:, int(si)]
-                    if not np.isnan(si)
+                    if pd.notna(si)
                     else 0.0
                 )
                 out[i] = base - own
@@ -216,13 +216,13 @@ def per_surname(
 
     acc: dict[str, np.ndarray] = {}
     for v, si, w, tot in zip(by_vs["village"], by_vs["si"], by_vs[weight], totals):
-        if not np.isnan(si):
+        if pd.notna(si):
             acc[v] = acc.get(v, 0.0) + (w / tot) * log_cooc[:, int(si)]
     nb = np.zeros((len(by_vs), len(jatis)))
     for i, (v, si, w, tot) in enumerate(
         zip(by_vs["village"], by_vs["si"], by_vs[weight], totals)
     ):
-        own = (w / tot) * log_cooc[:, int(si)] if not np.isnan(si) else 0.0
+        own = (w / tot) * log_cooc[:, int(si)] if pd.notna(si) else 0.0
         nb[i] = acc.get(v, np.zeros(len(jatis))) - own
 
     idx = by_vs["surname"].map(lookup)

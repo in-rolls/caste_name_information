@@ -18,20 +18,15 @@ by sex    weight by female and male bearers, using naampy's first-name gender to
 
 from __future__ import annotations
 
-import os
 from collections import Counter
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+from last_name_basis.siblings import repo
 from last_name_basis.upnaam import iter_resolved_roll, resolved_roll_path
 
 CATEGORY_LABEL = {"sc": "Scheduled Caste", "st": "Scheduled Tribe", "other": "neither"}
-
-
-def _github() -> Path:
-    return Path(os.environ.get("GITHUB_DIR", Path.home() / "Documents/GitHub"))
 
 
 def by_caste(
@@ -80,7 +75,7 @@ def by_caste(
 
 
 def first_name_gender(min_bearers: int = 200) -> dict[str, float] | None:
-    path = _github() / "naampy/in_rolls_state_year_fn_naampy.csv.gz"
+    path = repo("naampy") / "in_rolls_state_year_fn_naampy.csv.gz"
     if not path.exists():
         return None
     d = pd.read_csv(path, usecols=["first_name", "n_female", "n_male"])
@@ -96,7 +91,7 @@ def surname_by_sex(state: str, gender: dict[str, float]) -> pd.DataFrame | None:
     Upnaam's recorded surname, so the two tokens are distinct. In Maharashtra,
     the surname is first and the second token supplies the gender lookup.
     """
-    path = resolved_roll_path(state, github_dir=_github())
+    path = resolved_roll_path(state)
     if not path.exists():
         return None
     female: Counter[str] = Counter()
