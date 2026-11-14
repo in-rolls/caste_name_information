@@ -12,8 +12,10 @@ A07 := analyses/07_where_the_name_works
 A08 := analyses/08_karnataka_psc
 A09 := analyses/09_odisha_village_premium
 A10 := analyses/10_kerala_psc
+A11 := analyses/11_rajasthan_surname_to_category
+A12 := analyses/12_rajasthan_land_village_premium
 
-all: a01 a02 a03 a05 a06 a07 a08 a09 a10
+all: a01 a02 a03 a05 a06 a07 a08 a09 a10 a11 a12
 
 a01:
 	$(PY) $(A01)/pipeline.py
@@ -35,7 +37,7 @@ fmt:
 	$(BLACK) --fast src analyses tests
 	$(ISORT) src analyses tests
 
-.PHONY: all app app-data a01 a02 a03 a04 a05 a06 a07 a08 a09 a10 test lint fmt ci ci-docker
+.PHONY: all app app-data a01 a02 a03 a04 a05 a06 a07 a08 a09 a10 a11 test lint fmt ci ci-docker
 
 ci: lint test
 
@@ -66,8 +68,7 @@ a08:
 	$(PY) $(A08)/note.py
 
 a09:
-	$(PY) $(A09)/pipeline.py
-	$(PY) $(A09)/note.py
+	$(PY) -m last_name_basis.land_records --states odisha
 
 app-data:
 	$(PY) $(A01)/pipeline.py
@@ -78,3 +79,14 @@ app:
 a10:
 	$(PY) $(A10)/pipeline.py
 	$(PY) $(A10)/note.py
+
+a11:
+	$(PY) $(A11)/pipeline.py
+	$(PY) $(A11)/note.py
+
+.PHONY: a12 land-premium
+a12:
+	$(PY) -m last_name_basis.land_records --states rajasthan
+
+land-premium:
+	$(PY) -m last_name_basis.land_records
