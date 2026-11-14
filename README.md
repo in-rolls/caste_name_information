@@ -40,23 +40,23 @@ comparable.
 
 Indian electoral rolls do not record caste, and the caste census does not record
 where a household sits relative to its neighbours. Given that no single source
-carries both, the analyses below combine five.
+carries both, the analyses below combine several sources.
 
 | what it gives | what it cannot give | source |
 |---|---|---|
 | caste composition of a surname, nationally | fine categories; who actually carries the name today | SECC 2011 |
 | how common a name is, and who a person's father or husband is | any caste at all | electoral rolls, 2017 |
 | jati and hamlet for every household | anywhere outside Bihar; the landless | Bihar land records, Mahadalit census |
-| jati and village per tenant in a second state | a partial state; still being scraped | Odisha Record of Rights |
+| recorded caste and village per owner entry | partial coverage; still being scraped | Odisha Record of Rights |
+| recorded caste and village, with ownership repeated across plots | partial coverage; repeated owners are not separate people | Rajasthan Bhunaksha land records |
 | a third population with its own category labels | a population sample of anything | Karnataka PSC lists |
+| the OBC / General line, self-declared, with a father's name | a population sample; anything but Rajasthan | Rajasthan panchayat candidates |
 
-The national picture needs the first two joined. Whether the *place* does the
-work the name gets credit for needs the third, because only there can you put a
-name and a village together and take the village away. Whether the premium that
-produces is a fact about villages or a fact about Bihar needs the fourth, which
-records the same two things in another state. Whether "last name" even means
-the same thing across India needs the second and fifth, because those are where
-a name can be checked against a relative name or against an initial.
+The national picture joins caste composition to surname frequencies. The
+name-and-geography question needs land records carrying both fields. Bihar is
+the established case; the shared Odisha and Rajasthan pipeline extends that
+measurement as their crawls progress. Electoral rolls and recruitment lists
+provide separate evidence about which part of a name functions as a surname.
 
 ### Joining caste to frequency
 
@@ -76,11 +76,11 @@ times on the rolls, where it is the commonest surname in the country. So how
 common a name is comes from the rolls, and what it means comes from SECC.
 
 Filling a room with a hundred people means drawing surnames at their roll
-frequency and reading each one's caste mix off SECC. **That room is 19 Dalit, 6
-Adivasi, 75 neither.**
+frequency and reading each one's caste mix off SECC. **That room is 18 Dalit, 6
+Adivasi, 76 neither.**
 
 **Read every national number here against one limit.** Those 3,930 surnames are
-**59% of all the names people carry** on the rolls. The other 41% are the rarer
+**58% of all the names people carry** on the rolls. The other 42% are the rarer
 names, cut by the 100-record floor, and rare names are the informative ones. So
 the room is built from the commoner half of Indian naming, which is the half
 that reveals least. Every figure below is a floor on what a surname gives away,
@@ -96,23 +96,24 @@ Mahadalit census, with a jati and a hamlet for each household (analyses 02 and
 06). [**pranaam**](https://github.com/appeler/pranaam) holds the Karnataka
 Public Service Commission select lists (analysis 08), and
 [**ror_odisha_2026**](https://github.com/in-rolls/ror_odisha_2026) the Odisha Record of
-Rights (analysis 09). That last one publishes the scraper and not the records,
-so analysis 09 needs a local fetch to reproduce.
+Rights (analysis 09). The sibling `ror_rajasthan_2026` checkout supplies Rajasthan
+Bhunaksha records (analysis 12). Both land-record analyses require local saved
+checkpoints; their aggregate reports are reproducible from preserved snapshots.
 
-Because analyses 02 and 06 read from a local clone of `jati`, those two cannot
-be reproduced from a clean checkout. The other six can.
+Analyses 02 and 06 require a local clone of `jati`; analyses 09 and 12 require
+the local crawler data described in the [pipeline guide](docs/land-records.md).
 
 ## 1. A surname discriminates well and decides badly
 
 Take one Dalit and one non-Dalit at random and rank the pair by what their
-surnames say about caste. **The Dalit ranks higher 80 times in 100.** A surname
+surnames say about caste. **The Dalit ranks higher 81 times in 100.** A surname
 carrying no information would give 50, and for Adivasi against everyone else the
 figure is 91. So a surname is far from silent about who is more likely to be
 Dalit.
 
 Now ask the same data to name a single category for each person. Guess "neither"
 for everyone in that room of a hundred and you are wrong **25** times. Let
-yourself hear the last name and you are wrong **20**.
+yourself hear the last name and you are wrong **19**.
 
 Those two facts are both true and the gap between them is the point. Only about
 19 people in that room are Dalit, so a surname can raise someone's odds a great
@@ -151,7 +152,7 @@ of people, and 625 of them do move it.
 
 [![The commonest names in India tell you almost nothing](analyses/01_surname_to_category/out/fig/common_and_empty.png)](analyses/01_surname_to_category/note.md)
 
-A further **16% of people** carry a surname whose caste composition is more
+A further **15% of people** carry a surname whose caste composition is more
 evenly divided than the population's. `ram` is 45% Dalit and 47% not. That is
 real information, and it does not change the decision: the best guess for
 someone named Ram is still "neither", and it is wrong 53 times per 100, the same
@@ -170,14 +171,14 @@ else in others, and three of the analyses here found it failing in three
 different ways.
 
 **It can mark sex rather than family.** The commonest last name in India is
-**devi**, at 6.5% of the electoral roll. On the Bihar rolls **81% of women carry
+**devi**, at 6.2% of the electoral roll. On the Bihar rolls **81% of women carry
 a name from this group against 10% of men**, and the family names in the same
 state read as 84 to 89% male, because those families' women are on the roll as
 Devi. A woman and her brother do not share a last name, and a name assigned by
-sex cannot track a lineage. The clear cases cover **10.5% of the country**, and
-adding Singh and Kumar takes it to 19%.
+sex cannot track a lineage. The clear cases cover **10.4% of the country**, and
+adding Singh and Kumar takes it to **18%**.
 
-Eighteen names cover a quarter of India, and **103** if you count only names a
+**19** names cover a quarter of India, and **100** if you count only names a
 brother and sister share. That gap is not a correction toward a truer figure.
 Indian naming is as concentrated as the first number says, and Devi really is
 what tens of millions of women are called on a roll. The two count different
@@ -289,45 +290,60 @@ are surnames that cleared a 100-record disclosure floor and they cover between
 
 [![Deciding badly is not the same as carrying nothing](analyses/07_where_the_name_works/out/fig/discriminates.png)](analyses/07_where_the_name_works/note.md)
 
-**And the village premium is smaller outside Bihar.** The Odisha Record of
-Rights records a jati and a village for every tenant, so the same measurement is
-possible elsewhere. Across 30 districts and 10,604 villages, on the same
-protocol, **a village adds 24 points where in Bihar it adds 30**. Put as a share
-of the errors the surname leaves behind, adding the village removes 55% of them
-in Odisha and 64% in Bihar.
+**Village information helps in all three states, but Rajasthan is sensitive to
+how repeated owner identities are handled.** The September 12, 2026 saved-data
+snapshot gives the following errors per 100 observations when predicting the
+recorded caste label:
 
-That pooled figure hides a spread. District by district the premium runs from
-2.2 to 22.8 points, median 10.7, and the pooled number is larger than any single
-district: naming a village in the pooled problem also names a district and a
-region, so it carries geography a district-level score has already held fixed.
-Bihar's 30 is pooled too, which is what makes the pooled rows comparable.
+| State | Surname proxy alone | Surname proxy + village | Error reduction (points) |
+|---|---:|---:|---:|
+| [Bihar](analyses/02_jati_by_geography/note.md) | 47.3 | 17.2 | **30.0** |
+| [Odisha](analyses/09_odisha_village_premium/note.md) | 50.6 | 25.6 | **25.0** |
+| [Rajasthan](analyses/12_rajasthan_land_village_premium/note.md) | 60.9 | 40.6 | **20.3** |
 
-The two levels are not comparable: Bihar sorts people among 141 curated jatis
-and Odisha among 1,397 labels — of 6,507 strings recorded, kept when they reach
-more than one village and either 50 households or 5 villages, of which 387 carry
-99% of tenants — and a harder target costs mistakes whatever the surname does. Given that, the
-comparable quantity is the distance between the rungs. The two ladders cross:
-Odisha is the easier target at every size of place except the finest, and Bihar
-overtakes it exactly when the village arrives.
+Errors and reductions are rounded independently. Bihar uses its existing
+leave-one-out estimates, with different labels and filtering, including different
+record sets for each cue. Odisha and Rajasthan hold out entire accounts and use
+the same eligible entries for both cues within each state. These differences
+prevent a fair ranking of states.
 
-[![Error rising as the place gets bigger, in both places](analyses/09_odisha_village_premium/out/fig/atrophy.png)](analyses/09_odisha_village_premium/note.md)
+**Odisha is the clearest new finding:** adding village information roughly halves
+errors across 12.16 million eligible owner entries. The reduction stays around
+**25–27 points** in the completed-village, matching-signature and exploratory
+label-normalization checks. The primary estimate retains the recorded caste
+labels, without normalization merges or a rare-label floor.
 
-Three of the analyst's choices could have produced that difference, so each was
-varied. Two spellings are merged only when the bearers' surnames agree as well
-as the strings, because `ଗଣ୍ଡ`/`ଗଣ୍ଡା` and `ଚମାର`/`କମାର` are one edit apart and
-two different jatis each; moving that gate across its whole defensible range
-moves the premium by 0.14. Stripping the religion suffix from the jati label
-moves it from 24.1 to 23.3. The last token is the surname for 92% of tenants who
-share one with the relative named beside them, so that rule is measured rather
-than assumed. The scrape is unfinished and its districts were not entered at random,
-so this is a partial Odisha; a completed village is now censused rather than
-sampled, but villages still in progress are partial and bias the premium
-downward.
+**Rajasthan needs more caution.** Its primary reduction of 20.3 points across
+3.62 million eligible owner entries falls to **9.6 points** under matching-signature
+consolidation. That changes membership, weights and training support, as well as
+the holdout unit; it does not establish a person-level lower bound. Also,
+**84.5% of eligible Rajasthan owner entries have no spaces in the recorded name
+field**. A [full source-to-analysis investigation](docs/rajasthan-name-audit.md)
+traced this to the portal's recorded spellings, including joined names such as
+`रामलाल`, rather than first-word extraction. For those entries, the final-token
+proxy is the entire recorded name. The Rajasthan result therefore measures
+**name-token plus village information**; it does not establish a family-surname
+effect.
 
-*Analyses: [02](analyses/02_jati_by_geography),
-[06](analyses/06_neighbours),
-[07](analyses/07_where_the_name_works),
-[09](analyses/09_odisha_village_premium).*
+On the same Rajasthan entries, using the **whole recorded name** gives a
+**19.6-point** village premium; using the whole name **with spaces removed** gives
+**19.7 points**. The shared pipeline now reports both comparisons on every
+refresh. Space removal gives `रामलाल` and `राम लाल` the same prediction key
+while retaining their original spellings and separate owner entries.
+
+Both new analyses use one shared census preparation and scoring pipeline.
+Repeated account lists across plots are consolidated while co-owner multiplicity
+is retained. The observations are recorded owner entries, not verified unique
+people. These are censuses of saved data from unfinished, geographically selective
+crawls; the completion and matching-signature checks do not make them
+representative of either state's population.
+
+Run `make land-premium` to refresh both states from the sibling crawler checkouts.
+The linked analysis notes contain the latest generated results and exclusions;
+the table above records the September 12 snapshot. The
+[pipeline guide](docs/land-records.md) explains script ownership and replay, and
+the [validation report](docs/land-records-validation.md) documents the full census
+checks and Rajasthan sensitivity.
 
 ## 4. The failure is not spread evenly, and the direction is the worst one
 
@@ -363,10 +379,37 @@ from 52.5 mistakes per 100 to 40.0.
 
 [![What the guess gets wrong, by the candidate's own category](analyses/08_karnataka_psc/out/fig/by_category.png)](analyses/08_karnataka_psc/note.md)
 
+**And it is the only place this repo can draw the OBC / General line.** SECC
+records Scheduled Caste, Scheduled Tribe or neither, and in Rajasthan "neither"
+is seven people in ten. Panchayat election candidates declare their own
+category to stand, so 206,673 of them give a fourth label. Re-weighted to the
+state's shares and scored on districts the guesser has never seen, knowing
+nothing leaves **50 mistakes per 100 and the last name 39**.
+
+Only the 2020–22 sarpanch contestant records also give a father's or husband's
+name. Among candidates with that information, using the candidate's own
+surname gives **40.5 incorrect caste-category guesses per 100 candidates**;
+using both surnames gives **37.5 mistakes per 100**. That is about **3 fewer
+mistakes per 100 candidates** when guessing SC, ST, OBC or General. Both
+figures use the same candidates, category weights and held-out districts;
+the 39 above uses the larger sample that also includes election winners.
+
+The surname ranks an OBC above a General person **76** times in 100, about
+as well as it ranks a Dalit above a non-Dalit there, 72 times in 100.
+The guess is wrong about **83 of every 100 Dalits** and
+12 of every 100 OBCs, the same direction a third time. Of 93 surnames that are
+at least 90% one category, **63 are literally the name of a jati** and 23 the
+clan of one: the surname settles the category when it *is* the category.
+
+[![What a Rajasthani surname gives away](analyses/11_rajasthan_surname_to_category/out/fig/by_cue.png)](analyses/11_rajasthan_surname_to_category/note.md)
+
 **This is the result with consequences.** Use a name-based method to test whether
 Dalits get fewer callbacks, and two thirds of the real Dalits sit in your
 comparison group, on both sides of the gap you are trying to measure. The
-discrimination is unchanged; your estimate of it shrinks.
+discrimination is unchanged; your estimate of it shrinks. A Delhi rental audit
+that used Paswan and Manjhi as its Dalit names found a small Dalit penalty
+beside a large Muslim one. Its authors suggest landlords "may not have been as
+certain about the caste identity of the SC names" (Datta and Pathania 2016).
 
 The same question asked about sex has no such answer. Women's names cost **3.3
 more mistakes per hundred than men's in Bihar**, but 1.4 *fewer* in Rajasthan
@@ -378,7 +421,8 @@ table they rest on **57% of the Bihar roll, 36% of Maharashtra's, 20% of
 Rajasthan's and 19% of Punjab's**. Only Bihar is built on most of a state.
 
 *Analyses: [05](analyses/05_who_has_an_uninformative_name),
-[08](analyses/08_karnataka_psc).*
+[08](analyses/08_karnataka_psc),
+[11](analyses/11_rajasthan_surname_to_category).*
 
 ## 5. The exposure is in the linkage, not the word
 
@@ -394,9 +438,40 @@ A surname is a weak instrument. A surname joined to a register is a strong one.
 
 *Analysis: [06](analyses/06_neighbours).*
 
+## What others have found
+
+Studies that need caste and have only names keep reporting the same thing: the
+name often does not settle caste. They report it as a coverage count from their
+own sample, not as an error rate against recorded caste.
+
+- **A bank.** Fisman, Paravisini and Vig (2017) could assign a varna from the
+  surname for about **17% of borrowers and 40% of loan officers**, all of them
+  General, and only after conditioning on region.
+- **Courts.** Ash et al. (2025), coding five million criminal cases, write that
+  they "have not managed to develop a reliable correspondence between names and
+  caste." In Patna High Court cases, about **half** of litigants and judges
+  carry a caste-neutral surname (Bhupatiraju et al. 2024, as reported by
+  Shukla).
+- **An elite college.** Shukla (2025) finds that about **15% of students** have
+  a surname listed in the SC/ST schedules, the *People of India* volumes or
+  state gazettes. For them the caste penalty appears at the application reading.
+  For the other 85% it appears only after the personal interview.
+
+That last figure circulates as "85% of surnames do not convey caste". It is
+85% of *students at one college* whose surname was *not on a list*. The works
+cited beside it support "most", not a number. A list count of this kind cannot
+tell a surname that shifts the odds from one that settles them, which is the
+gap between claims 1 and 4 above. A surname that appears on no list can still
+move the odds, and one that does appear can still be wrong about many of its
+bearers.
+
+Sources, pages and checks: [`lit/`](lit/README.md).
+
 ## The analyses
 
-Each owns its pipeline, data loading, figures, note and `out/`.
+Most analyses own their pipeline, data loading, figures, note and `out/`.
+Analyses 09 and 12 share `src/last_name_basis/land_records/`; their directories
+contain thin entry points and generated aggregate reports.
 
 | | what it does |
 |---|---|
@@ -410,11 +485,15 @@ Each owns its pipeline, data loading, figures, note and `out/`.
 | [08 Karnataka PSC](analyses/08_karnataka_psc) | the only caste-linked name data for a state absent from SECC |
 | [09 Odisha village premium](analyses/09_odisha_village_premium) | whether the village premium travels outside Bihar |
 | [10 Kerala PSC](analyses/10_kerala_psc) | the state where most people have no surname to read |
+| [11 Rajasthan surname to category](analyses/11_rajasthan_surname_to_category) | the OBC / General line, from candidates who declare their own category |
+| [12 Rajasthan land-record village premium](analyses/12_rajasthan_land_village_premium) | the shared village-premium protocol on Rajasthan land records |
 
 ## Limits
 
 - Analysis 01 covers **SC / ST / Other only**, because SECC has no OBC category.
-  The finer categories exist only in analysis 02, and only for Bihar.
+  Analyses 02, 09 and 12 use finer land-record labels with different source
+  conventions. Analysis 11 uses Rajasthan election candidates’ declarations;
+  its statewide OBC / General split is an assumption, not a census figure.
 - Analysis 02 is **Bihar landowners**, so it under-represents the landless, who
   are disproportionately Dalit and EBC.
 - Analysis 03's title list is a judgment call, published in
@@ -455,15 +534,16 @@ one point of the score the data achieves.
 uv venv .venv
 uv pip install --python .venv/bin/python -e '.[dev]'
 
-make all      # the eight scripted analyses: tables, figures, notes
-make a01      # just the first, and so on through a09
+make all      # the scripted analyses: tables, figures, notes
+make a01      # just the first, and so on through a11
 make a04      # runs the notebook
 make test
 make lint
 ```
 
 Each analysis owns its own pipeline, data loading, figures, note and `out/`.
-Shared code is only the scoring measure, the drawing style and one data reader:
+Shared code includes the scoring measure, drawing style, data reader, and the
+[land-record pipeline](docs/land-records.md) used by analyses 09 and 12:
 
 | path | what |
 |---|---|
@@ -472,3 +552,7 @@ Shared code is only the scoring measure, the drawing style and one data reader:
 | `src/last_name_basis/upnaam.py` | validated reader for resolved roll surnames |
 
 MIT licensed.
+
+<!-- adjacent:start -->
+
+<!-- adjacent:end -->

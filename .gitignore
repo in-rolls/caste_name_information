@@ -15,3 +15,12 @@ analyses/*/out/tab/
 
 # The quiz log is per-deployment, not part of the repo.
 app/data/rounds.csv
+
+.local/
+
+# Local copies of cited papers; papers.csv records where each came from.
+/lit/papers/
+
+# Build output.
+dist/
+build/

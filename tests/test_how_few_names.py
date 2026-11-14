@@ -31,15 +31,15 @@ def test_titles_are_a_fifth_of_the_roll(counts):
     """The headline the note leads with."""
     nat = counts["national"]
     drop = counts["last_name"].isin(titles.LEVELS["minus_all"])
-    assert nat[drop].sum() / nat.sum() == pytest.approx(0.189, abs=0.005)
+    assert nat[drop].sum() / nat.sum() == pytest.approx(0.183, abs=0.005)
 
 
 def test_removing_titles_changes_what_concentration_means(curves):
-    """18 tokens cover a quarter of India; 18 real family names do not."""
+    """19 tokens cover a quarter of India; 19 real family names do not."""
     as_written = int(np.searchsorted(curves["as_written"], 0.25) + 1)
     minus_all = int(np.searchsorted(curves["minus_all"], 0.25) + 1)
-    assert as_written == 18
-    assert minus_all == 103
+    assert as_written == 19
+    assert minus_all == 100
 
 
 def test_curves_are_ordered(curves):

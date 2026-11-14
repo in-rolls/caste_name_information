@@ -6,8 +6,37 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-13
+
 ### Added
 
+- **Analysis 11, the OBC / General line, from Rajasthan's panchayat
+  candidates.** SECC records Scheduled Caste, Scheduled Tribe or neither, so no
+  analysis built on it can separate OBC from General. Rajasthan's State Election
+  Commission publishes the category each of 206,673 candidates declared to
+  stand. Re-weighted to the state's shares and scored on districts the guesser
+  has never seen, knowing nothing leaves 50 mistakes per 100 and the last name
+  39. The surname ranks an OBC above a General candidate 76 times in 100, about
+  as well as it ranks a Dalit above a non-Dalit there, 72. Of 93 surnames that
+  are at least 90% one category, 63 are the name of a jati and 23 the clan of
+  one. The 2020–22 sarpanch records also give a father's or husband's name, and
+  adding the relative's surname saves 3 mistakes per 100. The OBC/General split
+  used for re-weighting, 50:19, is an assumption, since no census records it.
+- **Analysis 12, the village premium in Rajasthan's land records**, and
+  analysis 09 rebuilt on the same pipeline (see Changed). On the September 12
+  snapshot the village takes the error from 60.9 to 40.6 per 100. It needs more
+  caution than Odisha: the premium falls to 9.6 points when repeated owner
+  identities are consolidated on matching signatures, and 84.5% of eligible
+  entries have no space in the recorded name, so the "surname" is often the
+  whole name. It measures name plus village, not a family-surname effect.
+- **What others have found.** A front-page section and `lit/` set the repo's
+  figures beside the published ones: Fisman et al., Ash et al., Bhupatiraju et
+  al., and Shukla's elite-college list count. The widely repeated "85% of
+  surnames do not convey caste" traces to Shukla's §4.6.1, where it is the
+  share of one college's students whose surname appears on no SC/ST schedule,
+  People of India volume or state gazette. That is a list-coverage count, not a
+  measure of what a surname signals. `lit/papers.csv` records where each PDF
+  came from and its SHA-256; the PDFs themselves are not committed.
 - **Analysis 10, Kerala, where the question often has no object.** 1.4M PSC
   select lists, the largest caste-linked name file here. 78% of last tokens are
   a single letter and only 27% of candidates have a written surname: a name is a
@@ -25,8 +54,73 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   caste has no reservation to claim, so dropping blanks removes the most
   distinctive non-Dalit names and pushes every figure down. They are a floor.
 
+- **A mechanism for the weakest state in analysis 07, from upnaam's Punjab
+  roll.** Punjab ranks 0.55 against a floor of 0.50 and the analysis did not say
+  why. The roll does: `singh` at 38% and `kaur` at 26% cover 64% of the state,
+  nearer 71% once `kanr`, which is Kaur misspelled, is counted with it. Neither
+  is a family name, so a state where two names that were never lineage markers
+  cover two thirds of the population cannot have surnames that identify caste.
+  That connects the weakest state to the sex-marking names of analysis 03, which
+  were unconnected before.
+- **The first cross-source check in the repo.** Every concentration figure came
+  from instate. upnaam's resolved rolls give a second read from a different
+  collection: Bihar agrees at 5 names against 4 and 65% against 67%, Punjab at 2
+  against 2 and 85% against 88%. Rajasthan disagrees twentyfold, and the reason
+  is known, since the resolver abstains on two thirds of that state, so the roll
+  describes a selected third. Maharashtra cannot be compared, because analysis
+  04 found it writes the surname first and analysis 03 withdrew it. Tests hold
+  all three outcomes, including the disagreement.
+- **Punjab in analysis 05's sex split**, the one resolved state it was not
+  using and the most sex-marked naming system in the country. Women's names cost
+  0.6 more mistakes per hundred than men's there. Four states now, still no
+  consistent direction, and Punjab's estimate rests on 19% of the state.
+
+- **Analysis 07, where a surname works and where it does not.** The national
+  figure hides a spread from 67% of the gap closed in Assam to 0% in Haryana.
+  What carries a state is one or two large decisive names, not many of them:
+  Punjab has five majority-Dalit surnames among its 25 commonest and closes 3%,
+  Assam has two and closes 67%, because one of them is `das`. Each state's
+  coverage is printed beside its result, and the ordering survives cutting every
+  state to its 25 commonest names.
+- **Analysis 08, what a surname reveals about caste in Karnataka.** Karnataka is
+  absent from SECC, so the Public Service Commission select lists are the only
+  caste-linked name data the project has for the state. Recovering a surname
+  takes a step first, because the last token is a single letter 34% of the time.
+  The guess is then wrong about 62 of every 100 Scheduled Caste candidates and
+  17 of every 100 General ones, which is analysis 05's national finding
+  reproduced on a different state, source and label set.
+
+- The front page now shows the skew. Sorted by frequency, the ten commonest
+  surnames in India cover 32% of everybody and not one of them moves the guess
+  off the base rate, while the 2,930 names ranked 1001 and below cover 6% of
+  people and 625 of them do. The figure pairing frequency against Dalit share
+  was already built and was not linked from the README.
+
 ### Changed
 
+- **Analysis 09 rebuilt on a shared land-record pipeline, and scored on all
+  of Odisha's saved records rather than one district.** Odisha and Rajasthan now
+  go through one package, `last_name_basis.land_records`: it snapshots the
+  crawler checkpoints, reconciles them against what the crawl attempted,
+  consolidates owner lists repeated across plots, and holds out whole accounts
+  when scoring. Across 12.16 million eligible owner entries the village takes
+  the error from 50.6 to 25.6 per 100, a premium of 25.0 points, and the
+  completed-village, matching-signature and label-normalisation checks keep it
+  at 25–27. The target is now the recorded caste label as written, with no
+  spelling merges or rare-label floor, so the old note's Gajapati figures and
+  its comparison of Odisha's and Bihar's ladders are gone. Both notes are
+  generated from the September 12 snapshot and need the local crawler data to
+  rebuild.
+- **The roll-weighted figures move with instate's revised rolls.** instate
+  3.3 to 3.6, released in September, recovered missing rolls, among them Jammu
+  and Kashmir, Gujarat and Andhra Pradesh, which changes how common each
+  surname is. Rebuilt
+  against it, the national guess goes from 25 mistakes per 100 to 19 with the
+  surname (was 20), the Dalit ranks higher 81 times in 100 (was 80), the table
+  covers 58% of names on the roll (was 59), and 19 names cover a quarter of
+  India (was 18; 100 counting only names a brother and sister share, was 103).
+  Figures weighted by SECC rather than by the rolls, including analysis 05's 66
+  and 4 per 100, do not change.
 - **Name concentration is the mechanism, not an artifact, and the first attempt
   at saying so was wrong too.** The repo had been writing about sex-marking and
   universal names as measurement problems: analysis 03 said counting them makes
@@ -51,31 +145,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   and is named as not fitting.
 
   This is a decomposition and not an identified mediation, which the note says.
-
-### Added
-
-- **A mechanism for the weakest state in analysis 07, from upnaam's Punjab
-  roll.** Punjab ranks 0.55 against a floor of 0.50 and the analysis did not say
-  why. The roll does: `singh` at 38% and `kaur` at 26% cover 64% of the state,
-  nearer 71% once `kanr`, which is Kaur misspelled, is counted with it. Neither
-  is a family name, so a state where two names that were never lineage markers
-  cover two thirds of the population cannot have surnames that identify caste.
-  That connects the weakest state to the sex-marking names of analysis 03, which
-  were unconnected before.
-- **The first cross-source check in the repo.** Every concentration figure came
-  from instate. upnaam's resolved rolls give a second read from a different
-  collection: Bihar agrees at 5 names against 4 and 65% against 67%, Punjab at 2
-  against 2 and 85% against 88%. Rajasthan disagrees twentyfold, and the reason
-  is known, since the resolver abstains on two thirds of that state, so the roll
-  describes a selected third. Maharashtra cannot be compared, because analysis
-  04 found it writes the surname first and analysis 03 withdrew it. Tests hold
-  all three outcomes, including the disagreement.
-- **Punjab in analysis 05's sex split**, the one resolved state it was not
-  using and the most sex-marked naming system in the country. Women's names cost
-  0.6 more mistakes per hundred than men's there. Four states now, still no
-  consistent direction, and Punjab's estimate rests on 19% of the state.
-
-### Changed
 
 - **The headline measure was accuracy against the largest category, which the
   base rate inflates.** A rule naming the majority is right 70 times in 100 in a
@@ -152,42 +221,26 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   files, a section headed "Three things this cannot support", and an instruction
   to the reader about what may be reported.
 
-### Added
+### Fixed
 
-- **Analysis 09, whether the village premium travels outside Bihar.** Analysis
-  02 is the strongest result here and it rested on one state. Scored on the same
-  protocol in Gajapati district, Odisha, a village adds 20 points where in Bihar
-  it adds 30; against what the surname leaves unresolved, it closes 42% of the
-  remainder against Bihar's 64%. Three analyst's choices were varied and none
-  produces the result: the jati merge threshold moves it by half a mistake,
-  stripping the religion suffix from the label moves it from 19.7 to 15.8, and
-  changing which token is taken as the surname moves it by 0.2. The surname
-  position is measured from the father's name rather than assumed, and in
-  Gajapati the surname is last, the opposite of Maharashtra. Both places are
-  also drawn on analysis 02's axis: error rises monotonically as the place gets
-  bigger in each, the two converge at 47 once the place is discarded, and they
-  separate as it is restored.
-
-- **Analysis 07, where a surname works and where it does not.** The national
-  figure hides a spread from 67% of the gap closed in Assam to 0% in Haryana.
-  What carries a state is one or two large decisive names, not many of them:
-  Punjab has five majority-Dalit surnames among its 25 commonest and closes 3%,
-  Assam has two and closes 67%, because one of them is `das`. Each state's
-  coverage is printed beside its result, and the ordering survives cutting every
-  state to its 25 commonest names.
-- **Analysis 08, what a surname reveals about caste in Karnataka.** Karnataka is
-  absent from SECC, so the Public Service Commission select lists are the only
-  caste-linked name data the project has for the state. Recovering a surname
-  takes a step first, because the last token is a single letter 34% of the time.
-  The guess is then wrong about 62 of every 100 Scheduled Caste candidates and
-  17 of every 100 General ones, which is analysis 05's national finding
-  reproduced on a different state, source and label set.
-
-- The front page now shows the skew. Sorted by frequency, the ten commonest
-  surnames in India cover 32% of everybody and not one of them moves the guess
-  off the base rate, while the 2,930 names ranked 1001 and below cover 6% of
-  people and 625 of them do. The figure pairing frequency against Dalit share
-  was already built and was not linked from the README.
+- **Every analysis that reads a sister repository had stopped running.** The
+  checkouts moved under their GitHub organisations (`appeler/instate`,
+  `in-rolls/upnaam` and so on), and a dozen copies of the same path helper
+  still looked in the old places. Some analyses crashed. Others ran and wrote notes
+  with their data silently missing: analysis 07's said the two commonest Punjab
+  names "cover **0%** of the state". One table, `last_name_basis.siblings`, now
+  says where each repository lives, and the land-record pipeline's
+  `--github-dir` flag is gone in favour of the same `GITHUB_DIR`. The Rajasthan
+  crawler was also misnamed (`ror_raj_2026` for `ror_rajasthan_2026`), and a
+  test now checks both crawler paths.
+- Analysis 11 read SECC from a sibling checkout of outkast; it and analysis 01
+  now read the copy shipped in the installed package, which is a dependency.
+- Analysis 06 crashed on pandas 3, where a failed lookup yields `pd.NA` rather
+  than `NaN` and `np.isnan` rejects it.
+- The README quoted three numbers no test checked: the 80 and 91 ranking
+  figures and the share covered once Singh and Kumar are added. All three had
+  drifted. They are now guarded, and analysis 03's "eighteen names" is read
+  from the output instead of being written into the note and the figure title.
 
 ## [1.0.1] - 2026-08-26
 

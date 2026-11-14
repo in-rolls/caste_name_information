@@ -58,8 +58,8 @@ def concentration(curves: dict[str, np.ndarray], marks: dict, out: Path) -> None
     ax.set_ylabel("share of people covered (%)")
     ax.set_title(
         "How concentrated Indian surnames are depends on what counts as one\n"
-        "Eighteen tokens cover a quarter of India. Eighteen real family names "
-        "do not.",
+        f"{marks['as_written']} tokens cover a quarter of India. "
+        f"{marks['as_written']} real family names do not.",
         color=INK,
         loc="left",
         fontsize=11.5,

@@ -136,8 +136,8 @@ Together these thirteen names cover
 |---|---|---|---|
 {level_rows}
 
-Eighteen names cover a quarter of India, but three of them are Devi, Singh and
-Kumar. Counting only names that a brother and sister would share, it takes
+A quarter of India carries just {lv['as_written']['names_for_25']} names, but three of them
+are Devi, Singh and Kumar. Counting only names that a brother and sister would share, it takes
 {lv['minus_all']['names_for_25']}. Every concentration figure depends on a
 judgment about what counts as a surname, so all three are reported here, and the
 list itself is in [`titles.py`](titles.py) with a reason beside each token, to

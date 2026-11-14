@@ -11,7 +11,7 @@ is from. All you have is a last name. How much does that narrow down their caste
 
 ## Start with a room of a hundred people
 
-Take a hundred adults at random. About 19 are Dalit (Scheduled Caste), about 6
+Take a hundred adults at random. About 18 are Dalit (Scheduled Caste), about 6
 are Adivasi (Scheduled Tribe), and about 75 are neither.
 
 Now guess. You know nothing about anyone, so you say "neither" every time,
@@ -27,7 +27,7 @@ times in 100 in a population that is 70% one group, whatever surnames reveal, so
 an accuracy figure is mostly a statement about the base rate.
 
 Rank people instead. Take one Dalit and one non-Dalit at random and order the
-pair by what their surnames say about caste. **The Dalit ranks higher 80 times
+pair by what their surnames say about caste. **The Dalit ranks higher 81 times
 in 100**, and 85 weighting people as SECC records them. For Adivasi against
 everyone else it is 91. A surname carrying nothing would give 50.
 
@@ -71,13 +71,13 @@ Pick one at random and you are far more likely to get a Devi than a Paswan.
 
 ![A hundred people picked at random](out/fig/random_hundred.png)
 
-Weighted that way — by who you would actually meet — 37% of people carry a
+Weighted that way — by who you would actually meet — 36% of people carry a
 surname that lands within five points of the base rate, and 91% carry one that
 does not change your best guess at all.
 
 ## Why the five-mistake improvement is misleading
 
-Across everyone, hearing names takes you from 25 mistakes per hundred to 20.
+Across everyone, hearing names takes you from 25 mistakes per hundred to 19.
 Five saved. That sounds like a modest but real gain, and the trouble with it is
 that it describes nobody.
 
@@ -85,7 +85,7 @@ It is an average over three quite different situations. A few names settle the
 question outright — Jha, Tiwari, Yadav, Sharma cost you one or two mistakes in a
 hundred. Most names do nothing: for 91% of people the name does not change the
 word that comes out of your mouth, because you were going to say "neither" and
-you still say "neither". And for 32% of people the name makes the guess *harder*
+you still say "neither". And for 31% of people the name makes the guess *harder*
 than it was for a stranger.
 
 Average a large group at zero, a large group below zero, and a small group at
@@ -103,8 +103,8 @@ The improvement that does exist is lopsided, and the direction matters.
 
 | | share of people | how many the guessing finds | when it does say so, how often right |
 |---|---|---|---|
-| Dalit | 19% | 22% | 72% |
-| Adivasi | 6% | 44% | 85% |
+| Dalit | 18% | 22% | 72% |
+| Adivasi | 6% | 47% | 86% |
 | neither | 75% | 98% | 81% |
 
 Names are good at ruling people **out**. Jha, Tiwari, Yadav, Sharma all put you
@@ -149,11 +149,11 @@ and it is certainty the question asked about.
 **Some names leave you worse off than knowing nothing.** Ram is very nearly an
 even split, so hearing it costs you 53 mistakes against the 25 you were already
 making. The name has not lied to you — it has correctly told you this is a hard
-case. But it has not helped. That is not one odd name: 32% of people carry a
+case. But it has not helped. That is not one odd name: 31% of people carry a
 surname that leaves the guess harder than a stranger's.
 
 And the shape behind that average is the whole story. The ten commonest names
-are 33% of everyone, and they cost a median 24 mistakes — against 25 for a
+are 32% of everyone, and they cost a median 24 mistakes — against 25 for a
 stranger. They are, as a group, no help whatever. Past those ten almost every
 name does help, and by roughly the same amount however rare it is: the median
 from rank eleven down to rank three thousand is about 13 mistakes. The step

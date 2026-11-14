@@ -27,6 +27,7 @@ A05 = ROOT / "analyses/05_who_has_an_uninformative_name/out/tab"
 A06 = ROOT / "analyses/06_neighbours/out/tab"
 A07 = ROOT / "analyses/07_where_the_name_works/out/tab"
 A08 = ROOT / "analyses/08_karnataka_psc/out/tab"
+A11 = ROOT / "analyses/11_rajasthan_surname_to_category/out/tab"
 
 
 def _json(path: Path) -> dict:
@@ -129,6 +130,16 @@ def _state(state: str, col: str):
     return get
 
 
+def _rajasthan(*keys: str):
+    def read():
+        s = _json(A11 / "summary.json")
+        for k in keys:
+            s = s[k]
+        return s
+
+    return read
+
+
 def _karnataka(key: str):
     def get():
         path = A08 / "summary.json"
@@ -167,6 +178,16 @@ def claims():
         # Section 01 is roll-weighted throughout. The SECC-weighted blind rate
         # is 29.6, and quoting the two on one page without saying which is
         # which is how the front page ended up self-contradictory.
+        (
+            "01 Dalit ranks higher",
+            r"The Dalit ranks higher (\d+) times in 100",
+            lambda: _json(A01 / "headline.json")["discrimination"]["roll"]["sc"] * 100,
+        ),
+        (
+            "01 Adivasi ranks higher",
+            r"Adivasi against everyone else the\s+figure is (\d+)",
+            lambda: _json(A01 / "headline.json")["discrimination"]["roll"]["st"] * 100,
+        ),
         (
             "01 roll Dalit share",
             r"room is (\d+) Dalit",
@@ -246,6 +267,16 @@ def claims():
             "03 sex-marking coverage",
             r"cover \*\*(\d+(?:\.\d)?)% of the\s+country\*\*",
             lambda: _a03("levels", "minus_clear", "people_dropped_share")() * 100,
+        ),
+        (
+            "03 names for a quarter as written",
+            r"\*\*(\d+)\*\* names cover a quarter of India",
+            _a03("levels", "as_written", "names_for_25"),
+        ),
+        (
+            "03 sex-marking plus singh and kumar",
+            r"adding Singh and Kumar takes it to \*\*(\d+)%\*\*",
+            lambda: _a03("levels", "minus_all", "people_dropped_share")() * 100,
         ),
         (
             "03 names for a quarter",
@@ -373,6 +404,46 @@ def claims():
             r"the surname closes (\d+)% of the gap",
             _karnataka("gap_closed_share"),
         ),
+        (
+            "11 blind",
+            r"nothing leaves \*\*(\d+) mistakes per 100 and the last name \d+\*\*",
+            _rajasthan("headline", "rajasthan", "blind"),
+        ),
+        (
+            "11 surname",
+            r"nothing leaves \*\*\d+ mistakes per 100 and the last name (\d+)\*\*",
+            _rajasthan("headline", "rajasthan", "surname"),
+        ),
+        (
+            "11 surname contestants",
+            r"\*\*(\d+\.\d+) incorrect caste-category guesses per 100 candidates\*\*",
+            _rajasthan("headline", "rajasthan", "surname_contest"),
+        ),
+        (
+            "11 both",
+            r"using both surnames gives \*\*(\d+\.\d+) mistakes per 100\*\*",
+            _rajasthan("headline", "rajasthan", "both_contest"),
+        ),
+        (
+            "11 OBC vs General",
+            r"above a General\s+person \*\*(\d+)\*\* times",
+            lambda: 100 * _rajasthan("ranking", "OBC vs General | surname")(),
+        ),
+        (
+            "11 SC error",
+            r"The guess is wrong about \*\*(\d+) of every 100 Dalits\*\*",
+            lambda: _rajasthan("by_category", "rajasthan", "SC", "wrong_per_100")(),
+        ),
+        (
+            "11 deterministic",
+            r"Of (\d+) surnames that are\s+at least 90% one category",
+            _rajasthan("tokens", "deterministic"),
+        ),
+        (
+            "11 jati names",
+            r"\*\*(\d+) are literally the name of a jati\*\*",
+            _rajasthan("tokens", "deterministic_jati_names"),
+        ),
     ]
 
 
@@ -409,16 +480,3 @@ def test_the_readme_says_none_only_while_none_is_true() -> None:
     assert says_none == (
         gainers == 0
     ), f"README says none={says_none}, but {gainers} of the top ten gain"
-
-
-def test_the_readme_premium_numbers_match_analysis_09() -> None:
-    """The front page states both premia; neither may drift from its output."""
-    path = ROOT / "analyses/09_odisha_village_premium/out/tab/summary.json"
-    if not path.exists():
-        pytest.skip("analysis 09 not built")
-    s = json.loads(path.read_text())
-    text = README.read_text()
-    match = re.search(r"village adds\s+(\d+) points where in Bihar it adds (\d+)", text)
-    assert match, "README no longer states the two premia"
-    assert abs(float(match.group(1)) - s["odisha"]["as recorded"]["premium"]) < 0.5
-    assert abs(float(match.group(2)) - s["bihar"]["premium"]) < 0.5

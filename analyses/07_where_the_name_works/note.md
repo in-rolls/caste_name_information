@@ -165,7 +165,7 @@ for the first time a number here can be checked against a second source.
 |---|---|---|---|---|
 | bihar | 5 | 4 | 65% | 67% |
 | punjab | 2 | 2 | 85% | 88% |
-| rajasthan | 116 | 5 | 31% | 67% |
+| rajasthan | 114 | 5 | 31% | 67% |
 
 Bihar and Punjab agree closely. Rajasthan does not, and the reason is known: the
 resolver abstains on two thirds of that state, so the roll's distribution
