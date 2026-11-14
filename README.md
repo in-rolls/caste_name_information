@@ -290,60 +290,41 @@ are surnames that cleared a 100-record disclosure floor and they cover between
 
 [![Deciding badly is not the same as carrying nothing](analyses/07_where_the_name_works/out/fig/discriminates.png)](analyses/07_where_the_name_works/note.md)
 
-**Village information helps in all three states, but Rajasthan is sensitive to
-how repeated owner identities are handled.** The September 12, 2026 saved-data
-snapshot gives the following errors per 100 observations when predicting the
-recorded caste label:
+**The village premium holds outside Bihar, and is smaller.** Land records in
+Odisha and Rajasthan carry a recorded caste and a village for each owner, so the
+measurement can be repeated. On the September 12, 2026 snapshot of each crawl,
+errors per 100 when predicting the recorded caste label:
 
-| State | Surname proxy alone | Surname proxy + village | Error reduction (points) |
+| State | Surname alone | Surname + village | Village premium (points) |
 |---|---:|---:|---:|
 | [Bihar](analyses/02_jati_by_geography/note.md) | 47.3 | 17.2 | **30.0** |
 | [Odisha](analyses/09_odisha_village_premium/note.md) | 50.6 | 25.6 | **25.0** |
 | [Rajasthan](analyses/12_rajasthan_land_village_premium/note.md) | 60.9 | 40.6 | **20.3** |
 
-Errors and reductions are rounded independently. Bihar uses its existing
-leave-one-out estimates, with different labels and filtering, including different
-record sets for each cue. Odisha and Rajasthan hold out entire accounts and use
-the same eligible entries for both cues within each state. These differences
-prevent a fair ranking of states.
+The rows are not a ranking. Bihar's figures are leave-one-out estimates on its
+own labels and filters, while Odisha and Rajasthan hold out whole accounts and
+score both cues on the same entries. Each column is rounded on its own.
 
-**Odisha is the clearest new finding:** adding village information roughly halves
-errors across 12.16 million eligible owner entries. The reduction stays around
-**25–27 points** in the completed-village, matching-signature and exploratory
-label-normalization checks. The primary estimate retains the recorded caste
-labels, without normalization merges or a rare-label floor.
+**In Odisha the village halves the error**, across 12.16 million owner entries,
+and the premium stays at **25–27 points** whether the sample is cut to completed
+villages, owners are matched on signatures, or labels are normalised. The
+primary estimate keeps the caste labels as recorded.
 
-**Rajasthan needs more caution.** Its primary reduction of 20.3 points across
-3.62 million eligible owner entries falls to **9.6 points** under matching-signature
-consolidation. That changes membership, weights and training support, as well as
-the holdout unit; it does not establish a person-level lower bound. Also,
-**84.5% of eligible Rajasthan owner entries have no spaces in the recorded name
-field**. A [full source-to-analysis investigation](docs/rajasthan-name-audit.md)
-traced this to the portal's recorded spellings, including joined names such as
-`रामलाल`, rather than first-word extraction. For those entries, the final-token
-proxy is the entire recorded name. The Rajasthan result therefore measures
-**name-token plus village information**; it does not establish a family-surname
-effect.
+**In Rajasthan the figure is fragile, and the name is often not a surname.**
+Consolidating owners who share a signature cuts the premium to **9.6 points**,
+though that changes who is counted as well as how they are held out. And
+**84.5% of the owner entries in Rajasthan have no space in the recorded name**: the
+portal writes `रामलाल`, not `राम लाल` ([audit](docs/rajasthan-name-audit.md)).
+For those entries the last token is the whole name. Scoring the whole name
+instead gives a **19.6-point** premium, and with spaces removed **19.7**, so
+what Rajasthan measures is name plus village, not surname plus village.
 
-On the same Rajasthan entries, using the **whole recorded name** gives a
-**19.6-point** village premium; using the whole name **with spaces removed** gives
-**19.7 points**. The shared pipeline now reports both comparisons on every
-refresh. Space removal gives `रामलाल` and `राम लाल` the same prediction key
-while retaining their original spellings and separate owner entries.
-
-Both new analyses use one shared census preparation and scoring pipeline.
-Repeated account lists across plots are consolidated while co-owner multiplicity
-is retained. The observations are recorded owner entries, not verified unique
-people. These are censuses of saved data from unfinished, geographically selective
-crawls; the completion and matching-signature checks do not make them
-representative of either state's population.
-
-Run `make land-premium` to refresh both states from the sibling crawler checkouts.
-The linked analysis notes contain the latest generated results and exclusions;
-the table above records the September 12 snapshot. The
-[pipeline guide](docs/land-records.md) explains script ownership and replay, and
-the [validation report](docs/land-records-validation.md) documents the full census
-checks and Rajasthan sensitivity.
+Both states are censuses of saved records from crawls that are unfinished and
+did not choose their districts at random, and an owner entry is a name on an
+account, not a verified person. The [pipeline guide](docs/land-records.md)
+covers how the records are consolidated and replayed, and the
+[validation report](docs/land-records-validation.md) the census checks. `make
+land-premium` refreshes both states from the local crawler checkouts.
 
 ## 4. The failure is not spread evenly, and the direction is the worst one
 
@@ -386,13 +367,11 @@ category to stand, so 206,673 of them give a fourth label. Re-weighted to the
 state's shares and scored on districts the guesser has never seen, knowing
 nothing leaves **50 mistakes per 100 and the last name 39**.
 
-Only the 2020–22 sarpanch contestant records also give a father's or husband's
-name. Among candidates with that information, using the candidate's own
-surname gives **40.5 incorrect caste-category guesses per 100 candidates**;
-using both surnames gives **37.5 mistakes per 100**. That is about **3 fewer
-mistakes per 100 candidates** when guessing SC, ST, OBC or General. Both
-figures use the same candidates, category weights and held-out districts;
-the 39 above uses the larger sample that also includes election winners.
+The 2020–22 sarpanch records also give a father's or husband's name. On those
+candidates the candidate's own surname leaves **40.5 mistakes per 100** and
+both surnames **37.5**, so the relative's name saves about **3**. The two
+figures share candidates, weights and held-out districts; the 39 above comes
+from the larger sample that includes election winners.
 
 The surname ranks an OBC above a General person **76** times in 100, about
 as well as it ranks a Dalit above a non-Dalit there, 72 times in 100.

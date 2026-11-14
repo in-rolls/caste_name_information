@@ -416,12 +416,12 @@ def claims():
         ),
         (
             "11 surname contestants",
-            r"\*\*(\d+\.\d+) incorrect caste-category guesses per 100 candidates\*\*",
+            r"own surname leaves \*\*(\d+\.\d+) mistakes per 100\*\*",
             _rajasthan("headline", "rajasthan", "surname_contest"),
         ),
         (
             "11 both",
-            r"using both surnames gives \*\*(\d+\.\d+) mistakes per 100\*\*",
+            r"both surnames \*\*(\d+\.\d+)\*\*",
             _rajasthan("headline", "rajasthan", "both_contest"),
         ),
         (
