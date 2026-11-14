@@ -133,5 +133,5 @@ def test_all_five_sources_are_pinned_to_the_same_release():
     }
     for spec in manifest.values():
         assert spec["provider"] == "local_elections_rajasthan"
-        assert spec["ref"] == "b543c4759519dd44682fbd278d81bdccaa152e99"
+        assert spec["ref"] == "854c415c9a4bf3beef393c170419b1bf8f41b189"
         assert len(spec["sha256"]) == 64

@@ -1,32 +1,32 @@
 {
   "sarpanch_2020": {
     "provider": "local_elections_rajasthan",
-    "ref": "b543c4759519dd44682fbd278d81bdccaa152e99",
-    "path": "data/ContestingSarpanch.csv.gz",
+    "ref": "854c415c9a4bf3beef393c170419b1bf8f41b189",
+    "path": "data/raw/sec_scrape/ContestingSarpanch.csv.gz",
     "sha256": "d0360d37c63c5f0984fd25e5695af9c7958797ff435da8d1a0aefae9d7dcc889"
   },
   "ward_2020": {
     "provider": "local_elections_rajasthan",
-    "ref": "b543c4759519dd44682fbd278d81bdccaa152e99",
-    "path": "data/WarnWinningPanch.csv.gz",
+    "ref": "854c415c9a4bf3beef393c170419b1bf8f41b189",
+    "path": "data/raw/sec_scrape/WarnWinningPanch.csv.gz",
     "sha256": "0d9d385b09cae7b27fec230dac801f7345d0781ec0456747d09daf0920b9a5f1"
   },
   "sarpanch_2005": {
     "provider": "local_elections_rajasthan",
-    "ref": "b543c4759519dd44682fbd278d81bdccaa152e99",
-    "path": "data/source/sarpanch/sarpanch_2005.csv",
+    "ref": "854c415c9a4bf3beef393c170419b1bf8f41b189",
+    "path": "data/raw/sarpanch/sarpanch_2005.csv",
     "sha256": "642c992acc6aa6f81dcfdfbe630a71b017aff551736c435e3ac839bbd85e2c92"
   },
   "sarpanch_2010": {
     "provider": "local_elections_rajasthan",
-    "ref": "b543c4759519dd44682fbd278d81bdccaa152e99",
-    "path": "data/source/sarpanch/sarpanch_2010.csv",
+    "ref": "854c415c9a4bf3beef393c170419b1bf8f41b189",
+    "path": "data/raw/sarpanch/sarpanch_2010.csv",
     "sha256": "84c9ed22680e75ac5e06f05fcc93e57bc38cc6d835e5cb22887e9d5f982089db"
   },
   "sarpanch_2015": {
     "provider": "local_elections_rajasthan",
-    "ref": "b543c4759519dd44682fbd278d81bdccaa152e99",
-    "path": "data/source/sarpanch/sarpanch_2015.csv",
+    "ref": "854c415c9a4bf3beef393c170419b1bf8f41b189",
+    "path": "data/raw/sarpanch/sarpanch_2015.csv",
     "sha256": "cffa013832efa807b67ee8fe6d42ef4511a3d29f2e48243e1af8707ffeaf7c79"
   }
 }
